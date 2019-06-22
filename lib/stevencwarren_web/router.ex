@@ -17,6 +17,7 @@ defmodule StevencwarrenWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/about", PageController, :about, as: :about
   end
 
   # Other scopes may use custom stacks.
