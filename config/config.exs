@@ -17,6 +17,10 @@ config :stevencwarren, StevencwarrenWeb.Endpoint,
   render_errors: [view: StevencwarrenWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Stevencwarren.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :stevencwarren, Stevencwarren.UserManager.Guardian,
+  issuer: "stevencwarren",
+  secret_key: "f8tnd5XsWSlBjMmMQTZD+b34E+zp0w2168tOe+Rhtmbrdo5oLso+RN+O1Ye/q3JF"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
