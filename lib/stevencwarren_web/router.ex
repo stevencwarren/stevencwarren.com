@@ -25,6 +25,8 @@ defmodule StevencwarrenWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/about", PageController, :about, as: :about
+
     get "/login", SessionController, :new
     post "/login", SessionController, :login
     post "/logout", SessionController, :logout

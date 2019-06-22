@@ -4,21 +4,24 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Stevencwarren · Phoenix Framework</title>
+    <title></title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body>
+  <body class="has-text-grey-dark">
     <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-          </ul>
-        </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
+      <nav class="navbar is-dark">
+        <div class="navbar-start">
+          <div class="navbar-brand">
+            <a href="/" class="navbar-item">stevencwarren</a>
+          </div>
+          <div class="navbar-menu">
+            <%= link("About", to: '/about', class: "navbar-item navbar-link") %>
+            <a href="#" class="navbar-item navbar-link">Posts</a>
+            <a href="#" class="navbar-item navbar-link">Reading List</a>
+            <a href="#" class="navbar-item navbar-link">Contact</a>
+          </div>
+        </div>
+      </nav>
     </header>
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
