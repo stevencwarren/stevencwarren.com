@@ -20,7 +20,7 @@ defmodule StevencwarrenWeb.SessionController do
 
   def logout(conn, _) do
     conn
-    |> Guardian.plug.sign_out()
+    |> Guardian.Plug.sign_out()
     |> redirect(to: "/login")
   end
 
