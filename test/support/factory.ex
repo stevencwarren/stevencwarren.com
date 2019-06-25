@@ -3,7 +3,7 @@ defmodule Stevencwarren.Factory do
 
   def user_factory do
     %Stevencwarren.UserManager.User{
-      email: sequence(:email, &"email-#{&1}@example.com"),
+      email: sequence(:email, &"foo-#{&1}@foo.com"),
       password: "0U812"
     }
   end
