@@ -47,6 +47,7 @@ defmodule Stevencwarren.MixProject do
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 0.12"},
       {:ex_machina, "~> 2.3", only: :test},
+      {:slugger, "~> 0.3"},
     ]
   end
 
