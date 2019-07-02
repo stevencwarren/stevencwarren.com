@@ -13,4 +13,9 @@
 
 alias Stevencwarren.ReadingList
 
-#ReadingList.create_category
+# Creating categories
+ReadingList.create_category("Web Development")
+ReadingList.create_category("Economics")
+ReadingList.create_category("Politics")
+ReadingList.create_category("Fiction")
+ReadingList.create_category("Misc")
