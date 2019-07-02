@@ -1,6 +1,5 @@
 defmodule Stevencwarren.ReadingList.ArticleTest do
   use Stevencwarren.DataCase
-
   alias Stevencwarren.ReadingList.Article
 
   describe "changesets" do
