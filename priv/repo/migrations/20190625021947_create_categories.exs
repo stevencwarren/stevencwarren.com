@@ -9,6 +9,7 @@ defmodule Stevencwarren.Repo.Migrations.CreateCategories do
       timestamps()
     end
 
-    create index("categories", [:slug])
+    create unique_index("categories", [:name])
+    create unique_index("categories", [:slug])
   end
 end

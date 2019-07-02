@@ -1,6 +1,7 @@
 defmodule Stevencwarren.ReadingList.CategoryTest do
   use Stevencwarren.DataCase
   alias Stevencwarren.ReadingList.Category
+  import Stevencwarren.Factory
 
   describe "changesets" do
     test "validates that name is required" do
@@ -8,6 +9,16 @@ defmodule Stevencwarren.ReadingList.CategoryTest do
 
       refute changeset.valid?
     end
+
+    test "categories validate that names are unique" do
+      insert(:category, %{ name: "foo" })
+
+      changeset = Category.changeset(%Category{}, %{name: "foo"})
+      { :error, changeset} = Repo.insert(changeset)
+
+      assert changeset.errors != nil
+    end
+
 
     test "the category changeset generates the slug from the name" do
       changeset = Category.changeset(%Category{}, %{
@@ -17,24 +28,6 @@ defmodule Stevencwarren.ReadingList.CategoryTest do
       {:ok, category} = Stevencwarren.Repo.insert(changeset)
 
       assert category.slug == "foo-name"
-    end
-
-    test "the category changeset creates a unique slugs" do
-      Stevencwarren.Repo.insert(Category.changeset(%Category{}, %{
-        name: "Foo Name"
-      }))
-
-      Stevencwarren.Repo.insert(Category.changeset(%Category{}, %{
-        name: "Foo Name"
-      }))
-
-      changeset = Category.changeset(%Category{}, %{
-        name: "Foo Name"
-      })
-
-      {:ok, dup} = Stevencwarren.Repo.insert(changeset)
-
-      assert dup.slug == "foo-name-2"
     end
   end
 end

@@ -1,6 +1,5 @@
 defmodule Stevencwarren.UserManagerTest do
   use Stevencwarren.DataCase
-
   alias Stevencwarren.UserManager
 
   describe "users" do
