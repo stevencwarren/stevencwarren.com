@@ -1,0 +1,9 @@
+<section class="section">
+  <h1 class="title">Reading List</h1>
+  <h2 class="subtitle">Categories</h2>
+  <ul>
+    <%= for category <- @categories do %>
+      <li><%= category.name %></li>
+    <% end %>
+  </ul>
+</section>
