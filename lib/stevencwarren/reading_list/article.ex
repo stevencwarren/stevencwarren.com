@@ -4,12 +4,14 @@ defmodule Stevencwarren.ReadingList.Article do
   import Ecto.Query, only: [from: 2]
 
   alias Stevencwarren.ReadingList.Article
+  alias Stevencwarren.ReadingList.Category
 
   schema "articles" do
     field :description, :string
     field :slug, :string
     field :title, :string
     field :url, :string
+    belongs_to :category, Category
 
     timestamps()
   end
@@ -17,8 +19,8 @@ defmodule Stevencwarren.ReadingList.Article do
   @doc false
   def changeset(article, attrs) do
     article
-    |> cast(attrs, [:title, :description, :url])
-    |> validate_required([:title, :url])
+    |> cast(attrs, [:category_id, :title, :description, :url])
+    |> validate_required([:url])
     |> slugify
   end
 

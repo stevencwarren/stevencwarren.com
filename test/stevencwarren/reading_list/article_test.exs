@@ -3,25 +3,7 @@ defmodule Stevencwarren.ReadingList.ArticleTest do
   alias Stevencwarren.ReadingList.Article
 
   describe "changesets" do
-    test "validates that the title is required" do
-      changeset = Article.changeset(%Article{}, %{
-        description: "foo",
-        url: "http://foo.com"
-      })
-
-      refute changeset.valid?
-    end
-
     test "validates that the url is required" do
-      changeset = Article.changeset(%Article{}, %{
-        title: "Foo title",
-        description: "foo"
-      })
-
-      refute changeset.valid?
-    end
-
-    test "validates that the slug is required" do
       changeset = Article.changeset(%Article{}, %{
         title: "Foo title",
         description: "foo"
