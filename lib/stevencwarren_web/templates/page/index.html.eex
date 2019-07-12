@@ -1,12 +1,26 @@
 <section class="section">
-  <div class="columns is-variable is-6">
+  <div class="columns is-variable">
     <div class="column is-one-third">
       <figure class="image is-650by866">
         <%= img_tag(Routes.static_path(@conn, "/images/portrait.jpg"), class: "has-shadow") %>
       </figure>
     </div>
-    <div class="column">
-      <p>Hello, welcome to my small section of the internet. My name is Steven Warren, I am currently the VP of Engineering at an early stage startup called <a href="https://www.psychhub.com/" target="_blank">Psych Hub</a></p>
+    <div class="column is-offset-1">
+      <div class="content">
+        <p>Hello, welcome to my small section of the internet. My name is Steven Warren, I am currently the VP of Engineering at an early stage at <a href="https://www.psychhub.com/" target="_blank">Psych Hub</a>.</p>
+        <p>A majority of my career has been building, debugging, planning, and estimating features for websites. I enjoy working with business, project managers, and developers to come up with good solutions. During the day I program mostly in Ruby and Javascript. But, in my free time I really enjoy working with Elixir.</p>
+        <p>In my freetime, I enjoy spending time with my Jane, my wife, and my two children Crawford (10) and Willa (7) in our RV Ravi.</p>
+
+        <h2 class="subtitle">Work History</h2>
+        <ul>
+          <li><a href="https://www.psychhub.com" target="_blank">Psych Hub</a> - VP of Engineering</li>
+          <li><a href="https://www.gonoodle.com" target="_blank">GoNoodle</a> - Lead Engineer</li>
+          <li>Enhanceworks - Co-founder &amp; CTO</li>
+          <li>Centresource - Associate Development Manager &amp; Project Lead </li>
+          <li>Athlon Sports - Developer</li>
+        </ul>
+        <p>You can view my full resume at <a href="http://www.url.com" target="_blank">LinkedIn</a></p>
+      </div>
     </div>
   </div>
 </section>

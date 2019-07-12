@@ -10,15 +10,17 @@
   <body class="has-text-grey-dark">
     <header>
       <nav class="navbar is-dark">
-        <div class="navbar-start">
-          <div class="navbar-brand">
-            <a href="/" class="navbar-item">stevencwarren</a>
+        <div class="container">
+          <div class="navbar-start">
+            <div class="navbar-brand">
+              <a href="/" class="navbar-item">stevencwarren</a>
+            </div>
           </div>
-          <div class="navbar-menu">
-            <%= link("About", to: '/about', class: "navbar-item navbar-link") %>
-            <a href="#" class="navbar-item navbar-link">Posts</a>
-            <a href="#" class="navbar-item navbar-link">Reading List</a>
-            <a href="#" class="navbar-item navbar-link">Contact</a>
+          <div class="navbar-end">
+            <div class="navbar-menu">
+              <%= link("Reading List", to: '/reading-list', class: "navbar-item navbar-link is-arrowless") %>
+              <a href="#" class="navbar-item navbar-link is-arrowless">Contact</a>
+            </div>
           </div>
         </div>
       </nav>

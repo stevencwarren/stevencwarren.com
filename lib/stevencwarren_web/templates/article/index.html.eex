@@ -1,9 +1,25 @@
 <section class="section">
   <h1 class="title">Reading List</h1>
-  <h2 class="subtitle">Categories</h2>
-  <ul>
-    <%= for category <- @categories do %>
-      <li><%= category.name %></li>
-    <% end %>
-  </ul>
+  <div class="columns">
+    <div class="column">
+      <h2 class="subtitle">Recently Added Articles</h2>
+    </div>
+
+    <div class="column is-one-quarter">
+      <div class="columns is-multiline">
+        <div class="column is-full">
+          <h2 class="subtitle">Categories</h2>
+          <ul>
+            <%= for category <- @categories do %>
+              <li><%= category.name %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="column is-full">
+          <a class="button is-link" href="#">Add an Article</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
