@@ -1,7 +1,7 @@
 <section class="section">
   <h1 class="title">Add a new Article to your reading list</h1>
 
-  <%= form_for @changeset, "/articles", fn f -> %>
+  <%= form_for @changeset, "/reading-list", fn f -> %>
     <div class="field">
       <label class="label">URL</label>
       <div class="control">

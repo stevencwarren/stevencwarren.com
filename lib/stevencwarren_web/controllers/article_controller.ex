@@ -12,4 +12,15 @@ defmodule StevencwarrenWeb.ArticleController  do
     categories = ReadingList.list_categories
     render(conn, "new.html", categories: categories, changeset: ReadingList.article_changeset)
   end
+
+  def create(conn, %{"article" => article_params}) do
+    case ReadingList.create_article(article_params) do
+      {:ok, article } ->
+        conn
+        |> redirect(to: Routes.article_path(conn, :index))
+
+      {:error, %Ecto.Changeset{} = changeset } ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
 end

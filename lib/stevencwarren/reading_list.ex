@@ -8,14 +8,10 @@ defmodule Stevencwarren.ReadingList do
     Article.changeset(%Article{}, %{})
   end
 
-  def create_article(%{url: url, category_id: category_id }) do
-    changeset = Article.changeset(%Article{}, %{ url: url, category_id: category_id })
+  def create_article(attrs \\ %{}) do
+    changeset = Article.changeset(%Article{}, attrs)
 
     Repo.insert(changeset)
-  end
-
-  def create_article(_) do
-    { :error, "You must include a url and a category" }
   end
 
   def create_category(name) do
