@@ -8,7 +8,27 @@ defmodule Stevencwarren.ReadingListTest do
   alias Stevencwarren.ReadingList.Article
   alias Stevencwarren.ReadingList.Category
 
-  describe "articles" do
+  describe "article_changeset/0" do
+    test "it returns an empty changeset" do
+      assert Article.changeset(%Article{}, %{}) == ReadingList.article_changeset
+    end
+  end
+
+  describe "create_article/1" do
+    test "it creates a category when it is given valid params" do
+      category = insert(:category)
+      { :ok, article } = ReadingList.create_article(%{url: "http://foo.com", category_id: category.id })
+
+      assert article.url == "http://foo.com"
+      assert article.category_id == category.id
+    end
+
+    test "it returns an error if there is no url" do
+      category = insert(:category)
+      { :error, message}  = ReadingList.create_article(%{category_id: category.id })
+
+      assert message == "You must include a url and a category"
+    end
   end
 
   describe "create_category/1" do

@@ -17,7 +17,7 @@
         </div>
 
         <div class="column is-full">
-          <a class="button is-link" href="#">Add an Article</a>
+          <a class="button is-link" href="<%= StevencwarrenWeb.Router.Helpers.article_path(@conn, :new) %>">Add an Article</a>
         </div>
       </div>
     </div>
