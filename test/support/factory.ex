@@ -1,7 +1,15 @@
 defmodule Stevencwarren.Factory do
   use ExMachina.Ecto, repo: Stevencwarren.Repo
   alias Stevencwarren.UserManager.User
+  alias Stevencwarren.ReadingList.Article
   alias Stevencwarren.ReadingList.Category
+
+  def article_factory do
+    %Article {
+      url: "http://foo.com",
+      category: build(:category)
+    }
+  end
 
   def user_factory do
     %Stevencwarren.UserManager.User{

@@ -23,4 +23,11 @@ defmodule Stevencwarren.ReadingList do
   def list_categories do
     order_by(Category, asc: :name) |> Repo.all()
   end
+
+  def recent_articles do
+    order_by(Article, desc: :inserted_at)
+    |> limit(5)
+    |> preload(:category)
+    |> Repo.all()
+  end
 end
