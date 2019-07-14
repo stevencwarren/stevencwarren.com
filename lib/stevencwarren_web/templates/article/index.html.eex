@@ -3,6 +3,11 @@
   <div class="columns">
     <div class="column">
       <h2 class="subtitle">Recently Added Articles</h2>
+      <ol>
+        <%= for article <- @recent_articles do %>
+          <li><a href="<%= article.url %>" target="_blank"><%= article.url %></a> - <%= article.category.name  %></li>
+        <% end %>
+      </ol>
     </div>
 
     <div class="column is-one-quarter">
