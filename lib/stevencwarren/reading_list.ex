@@ -20,6 +20,14 @@ defmodule Stevencwarren.ReadingList do
     Repo.insert(changeset)
   end
 
+  def get_category!(slug) do
+    category = from(c in Category, where: c.slug == ^slug)
+    |> Repo.one!
+    |> Repo.preload([:articles])
+
+    {:ok, category}
+  end
+
   def list_categories do
     order_by(Category, asc: :name) |> Repo.all()
   end

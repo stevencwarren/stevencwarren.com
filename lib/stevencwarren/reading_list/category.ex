@@ -3,11 +3,13 @@ defmodule Stevencwarren.ReadingList.Category do
   import Ecto.Changeset
   import Ecto.Query, only: [from: 2]
 
+  alias Stevencwarren.ReadingList.Article
   alias Stevencwarren.ReadingList.Category
 
   schema "categories" do
     field :name, :string
     field :slug, :string
+    has_many :articles, Article
 
     timestamps()
   end

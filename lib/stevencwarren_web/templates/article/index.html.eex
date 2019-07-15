@@ -1,8 +1,8 @@
 <section class="section">
-  <h1 class="title">Reading List</h1>
+  <h1 class="title">Articles that I need to read</h1>
   <div class="columns">
     <div class="column">
-      <h2 class="subtitle">Recently Added Articles</h2>
+      <h2 class="subtitle">Recents</h2>
       <ol>
         <%= for article <- @recent_articles do %>
           <li><a href="<%= article.url %>" target="_blank"><%= article.url %></a> - <%= article.category.name  %></li>
@@ -16,7 +16,7 @@
           <h2 class="subtitle">Categories</h2>
           <ul>
             <%= for category <- @categories do %>
-              <li><%= category.name %></li>
+              <li><a href="<%= StevencwarrenWeb.Router.Helpers.category_path(@conn, :show, category.slug) %>"><%= category.name %></a></li>
             <% end %>
           </ul>
         </div>

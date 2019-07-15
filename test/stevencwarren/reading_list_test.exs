@@ -24,6 +24,19 @@ defmodule Stevencwarren.ReadingListTest do
     end
   end
 
+  describe "get_category/1" do
+    test "it returns a category when it has a correct slug" do
+      category = insert(:category, %{ name: "a category", slug: "a-category" })
+      {:ok, result } = ReadingList.get_category!("a-category")
+
+      assert result.id == category.id
+    end
+
+    @tag :skip
+    test "it returns an error when the slug doesn't exists" do
+    end
+  end
+
   describe "list_categories/0" do
     test "it returns all of the categories in alphabetical order" do
       category_Z = insert(:category, %{name: "Z category" })
@@ -44,7 +57,7 @@ defmodule Stevencwarren.ReadingListTest do
       article_3 = insert(:article, inserted_at: Timex.shift(Timex.now, days: -3))
       article_4 = insert(:article, inserted_at: Timex.shift(Timex.now, days: -2))
       article_5 = insert(:article, inserted_at: Timex.shift(Timex.now, days: -1))
-      article_6 = insert(:article, inserted_at: Timex.shift(Timex.now, days: -7))
+      _article_6 = insert(:article, inserted_at: Timex.shift(Timex.now, days: -7))
 
       articles = ReadingList.recent_articles
 

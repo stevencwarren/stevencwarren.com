@@ -30,7 +30,8 @@ defmodule StevencwarrenWeb.Router do
     post "/login", SessionController, :login
     post "/logout", SessionController, :logout
 
-    resources "/reading-list", ArticleController
+    resources "/reading-list", ArticleController, only: [:index, :new, :create]
+    resources "/categories", CategoryController, only: [:show]
   end
 
   # Other scopes may use custom stacks.

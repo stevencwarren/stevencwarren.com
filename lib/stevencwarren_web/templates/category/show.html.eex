@@ -1,0 +1,15 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Articles - <%= @category.name %></h2>
+
+    <%= if Enum.empty?(@category.articles) do %>
+      <p>There aren't any articles to read here. Contact me and suggest something</p>
+    <% else %>
+      <ol>
+        <%= for article <- @category.articles do %>
+          <li><a href="<%= article.url %>"><%= article.url %></a></li>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
+</section>

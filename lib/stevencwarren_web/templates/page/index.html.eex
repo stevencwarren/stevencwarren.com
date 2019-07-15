@@ -7,9 +7,11 @@
     </div>
     <div class="column is-offset-1">
       <div class="content">
-        <p>Hello, welcome to my small section of the internet. My name is Steven Warren, I am currently the VP of Engineering at an early stage at <a href="https://www.psychhub.com/" target="_blank">Psych Hub</a>.</p>
-        <p>A majority of my career has been building, debugging, planning, and estimating features for websites. I enjoy working with business, project managers, and developers to come up with good solutions. During the day I program mostly in Ruby and Javascript. But, in my free time I really enjoy working with Elixir.</p>
-        <p>In my freetime, I enjoy spending time with my Jane, my wife, and my two children Crawford (10) and Willa (7) in our RV Ravi.</p>
+        <p>Hello, welcome to my small section of the internet. My name is Steven Warren, I am currently the VP of Engineering at an early stage startup, <a href="https://www.psychhub.com/" target="_blank">Psych Hub</a>.</p>
+        <p>During the day I spend most of my time building, testting, and refactoring a Rails app for Psych Hub. Outside of work I have been spending a lot of time working with Elixir. This site was build with Elixir, Phoenix, and Bulma.io</p>
+        <p>Before joining the Psych Hub team, I was a Lead Engineer at GoNoodle for six years. During my time there, I helped lead a team of engineers who developed a platform to stream video to millions of teachers, parents, and kids every month. I also was a crucial player in the implementation of an advertising solution for custom content, developed a custom content publishing system, and developed an API for web, iOS, and Android clients.</p>
+        <p>I went to the University of Mississippi and graduated with a Bachelor of Business Administration focusing on Marketing. I also hold minors in English and History.</p>
+        <p>When I am not working, I enjoys camping with my family son Crawford, daughter Willa, and my wife Jane.</p>
 
         <h2 class="subtitle">Work History</h2>
         <ul>
