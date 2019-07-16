@@ -32,6 +32,7 @@ defmodule StevencwarrenWeb.Router do
 
     resources "/reading-list", ArticleController, only: [:index, :new, :create]
     resources "/categories", CategoryController, only: [:show]
+    resources "/contact", ContactController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.

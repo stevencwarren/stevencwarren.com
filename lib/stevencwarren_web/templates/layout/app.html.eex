@@ -18,8 +18,8 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
-              <%= link("Reading List", to: '/reading-list', class: "navbar-item navbar-link is-arrowless") %>
-              <a href="#" class="navbar-item navbar-link is-arrowless">Contact</a>
+              <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
+              <%= link("Contact", to: "/contact/new", class: "navbar-item navbar-link is-arrowless") %>
             </div>
           </div>
         </div>
