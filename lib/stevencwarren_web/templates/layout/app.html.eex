@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body class="has-text-grey-dark">
@@ -19,17 +20,24 @@
           <div class="navbar-end">
             <div class="navbar-menu">
               <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
-              <%= link("Contact", to: "/contact/new", class: "navbar-item navbar-link is-arrowless") %>
+              <%= link("Contact", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
+    <main role="main">
+      <div class="alert has-background-info has-text-white" role="alert">
+        <p class="container">
+          <%= get_flash(@conn, :info) %>
+        </p>
+      </div>
+      <div class="alert has-background-danger has-text-white" role="alert">
+        <p class="container"><%= get_flash(@conn, :error) %></p>
+      </div>
+      <div class="container">
+        <%= render @view_module, @view_template, assigns %>
+      </div>
     </main>
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

@@ -1,0 +1,8 @@
+textarea.input {
+ height: 250px;
+}
+
+.honeypot {
+  opacity: 0;
+  text-indent: -9999px;
+}

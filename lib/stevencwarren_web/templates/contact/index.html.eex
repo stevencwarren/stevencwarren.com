@@ -15,6 +15,8 @@
         </div>
       </div>
 
+      <%= hidden_input f, :honeypot, class: "honeypot" %>
+
       <div class="field">
         <div class="control">
           <%= submit "Submit",  class: "button is-link" %>

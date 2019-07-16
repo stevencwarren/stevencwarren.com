@@ -49,7 +49,8 @@ defmodule Stevencwarren.MixProject do
       {:ex_machina, "~> 2.3", only: :test},
       {:slugger, "~> 0.3"},
       {:timex, "~> 3.5"},
-      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:bamboo, "~> 1.2"},
     ]
   end
 

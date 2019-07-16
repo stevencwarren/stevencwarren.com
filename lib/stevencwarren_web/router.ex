@@ -32,7 +32,11 @@ defmodule StevencwarrenWeb.Router do
 
     resources "/reading-list", ArticleController, only: [:index, :new, :create]
     resources "/categories", CategoryController, only: [:show]
-    resources "/contact", ContactController, only: [:new, :create]
+    resources "/contact", ContactController, only: [:index, :create]
+  end
+
+  if Mix.env == :dev do
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
   end
 
   # Other scopes may use custom stacks.
