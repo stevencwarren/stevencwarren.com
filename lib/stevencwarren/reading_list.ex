@@ -32,6 +32,10 @@ defmodule Stevencwarren.ReadingList do
     order_by(Category, asc: :name) |> Repo.all()
   end
 
+  def mark_article_read(id) do
+
+  end
+
   def recent_articles do
     order_by(Article, desc: :inserted_at)
     |> limit(5)
