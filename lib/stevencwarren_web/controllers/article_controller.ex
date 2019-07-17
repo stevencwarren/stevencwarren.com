@@ -28,4 +28,10 @@ defmodule StevencwarrenWeb.ArticleController  do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def mark_read(conn, %{ "article_id" => article_id}) do
+    conn
+    |> put_flash(:info, "You have marked the article as read")
+    |> redirect(to: "/reading-list")
+  end
 end
