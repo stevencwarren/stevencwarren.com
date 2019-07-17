@@ -1,17 +1,21 @@
 defmodule StevencwarrenWeb.ArticleController  do
   use StevencwarrenWeb, :controller
 
+  alias Stevencwarren.UserManager.Guardian
   alias Stevencwarren.ReadingList
 
   def index(conn, _) do
     categories = ReadingList.list_categories
     recent_articles = ReadingList.recent_articles
-    render(conn, "index.html", categories: categories, recent_articles: recent_articles)
+    user = Guardian.Plug.current_resource(conn)
+    render(conn, "index.html", categories: categories, recent_articles: recent_articles, user: user)
   end
 
   def new(conn, _) do
     categories = ReadingList.list_categories
-    render(conn, "new.html", categories: categories, changeset: ReadingList.article_changeset)
+    user = Guardian.Plug.current_resource(conn)
+
+    render(conn, "new.html", categories: categories, changeset: ReadingList.article_changeset, user: user)
   end
 
   def create(conn, %{"article" => article_params}) do

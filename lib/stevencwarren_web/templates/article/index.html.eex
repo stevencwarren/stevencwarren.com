@@ -21,9 +21,11 @@
           </ul>
         </div>
 
-        <div class="column is-full">
-          <a class="button is-link" href="<%= StevencwarrenWeb.Router.Helpers.article_path(@conn, :new) %>">Add an Article</a>
-        </div>
+        <%= if @user do %>
+          <div class="column is-full">
+            <a class="button is-link" href="<%= StevencwarrenWeb.Router.Helpers.article_path(@conn, :new) %>">Add an Article</a>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

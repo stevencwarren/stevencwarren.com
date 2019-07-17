@@ -22,7 +22,7 @@ defmodule StevencwarrenWeb.Router do
   end
 
   scope "/", StevencwarrenWeb do
-    pipe_through :browser
+    pipe_through [:browser, :auth]
 
     get "/", PageController, :index
 
@@ -30,9 +30,14 @@ defmodule StevencwarrenWeb.Router do
     post "/login", SessionController, :login
     post "/logout", SessionController, :logout
 
-    resources "/reading-list", ArticleController, only: [:index, :new, :create]
+    resources "/reading-list", ArticleController, only: [:index]
     resources "/categories", CategoryController, only: [:show]
     resources "/contact", ContactController, only: [:index, :create]
+  end
+
+  scope "/", StevencwarrenWeb do
+    pipe_through [:browser, :auth, :ensure_auth]
+    resources "/reading-list", ArticleController, only: [:new, :create]
   end
 
   if Mix.env == :dev do
