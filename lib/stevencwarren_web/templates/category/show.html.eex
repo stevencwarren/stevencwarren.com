@@ -13,7 +13,11 @@
           <div class="column is-one-fifth">
             <a href="<%= article.url %>" class="button is-link is-small" target="_blank">Visit</a>
             <%= if StevencwarrenWeb.LayoutView.logged_in?(@conn) do %>
-              <a href="/reading-list/<%= article.id %>/mark-read" class="button is-warning is-small">Mark read</a></li>
+              <%= if article.read == true do %>
+                <button class="button is-small is-dark" disabled>Already read</button>
+              <% else %>
+                <a href="/reading-list/<%= article.id %>/mark-read" class="button is-warning is-small">Mark read</a></li>
+              <% end %>
             <% end %>
           </div>
         <% end %>
