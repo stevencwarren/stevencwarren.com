@@ -5,7 +5,7 @@
     <%= if Enum.empty?(@category.articles) do %>
       <p>There aren't any articles to read here. Contact me and suggest something</p>
     <% else %>
-      <div class="columns">
+      <div class="columns is-multiline">
         <%= for article <- @category.articles do %>
           <div class="column is-four-fifths">
             <%= article.url %>

@@ -20,7 +20,7 @@ defmodule Stevencwarren.ReadingList.Article do
   @doc false
   def changeset(article, attrs) do
     article
-    |> cast(attrs, [:category_id, :title, :description, :url])
+    |> cast(attrs, [:category_id, :title, :description, :url, :read])
     |> validate_required([:url])
     |> slugify
   end

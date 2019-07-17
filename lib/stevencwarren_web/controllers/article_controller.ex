@@ -30,6 +30,10 @@ defmodule StevencwarrenWeb.ArticleController  do
   end
 
   def mark_read(conn, %{ "article_id" => article_id}) do
+    article = ReadingList.get_article!(article_id)
+
+    ReadingList.mark_article_read!(article)
+
     conn
     |> put_flash(:info, "You have marked the article as read")
     |> redirect(to: "/reading-list")

@@ -20,6 +20,8 @@ defmodule Stevencwarren.ReadingList do
     Repo.insert(changeset)
   end
 
+  def get_article!(id), do: Repo.get!(Article, id)
+
   def get_category!(slug) do
     category = from(c in Category, where: c.slug == ^slug)
     |> Repo.one!
@@ -32,8 +34,10 @@ defmodule Stevencwarren.ReadingList do
     order_by(Category, asc: :name) |> Repo.all()
   end
 
-  def mark_article_read(id) do
-
+  def mark_article_read!(article) do
+    article
+    |> Article.changeset(%{ read: true })
+    |> Repo.update
   end
 
   def recent_articles do

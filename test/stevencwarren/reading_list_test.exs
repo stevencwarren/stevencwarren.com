@@ -50,6 +50,15 @@ defmodule Stevencwarren.ReadingListTest do
     end
   end
 
+  describe "mark_article_read!/1" do
+    test "when the article is found and not read it sets the article as read" do
+      article = insert(:article)
+
+      assert {:ok, article } = ReadingList.mark_article_read!(article)
+      assert article.read == true
+    end
+  end
+
   describe "recent_articles/0" do
     test "it returns the 5 recently added articles" do
       article_1 = insert(:article, inserted_at: Timex.shift(Timex.now, days: -5))
