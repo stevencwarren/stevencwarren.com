@@ -6,10 +6,14 @@ defmodule StevencwarrenWeb.SessionController do
   def new(conn, _) do
     changeset = UserManager.change_user(%User{})
     maybe_user = Guardian.Plug.current_resource(conn)
+
     if maybe_user do
       redirect(conn, to: "/admin/dashboard")
     else
-      render(conn, "new.html", changeset: changeset, action: StevencwarrenWeb.Router.Helpers.session_path(conn, :login))
+      render(conn, "new.html",
+        changeset: changeset,
+        action: StevencwarrenWeb.Router.Helpers.session_path(conn, :login)
+      )
     end
   end
 

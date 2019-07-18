@@ -11,19 +11,19 @@ defmodule Stevencwarren.ReadingList.CategoryTest do
     end
 
     test "categories validate that names are unique" do
-      insert(:category, %{ name: "foo" })
+      insert(:category, %{name: "foo"})
 
       changeset = Category.changeset(%Category{}, %{name: "foo"})
-      { :error, changeset} = Repo.insert(changeset)
+      {:error, changeset} = Repo.insert(changeset)
 
       assert changeset.errors != nil
     end
 
-
     test "the category changeset generates the slug from the name" do
-      changeset = Category.changeset(%Category{}, %{
-        name: "Foo Name!!!",
-      })
+      changeset =
+        Category.changeset(%Category{}, %{
+          name: "Foo Name!!!"
+        })
 
       {:ok, category} = Stevencwarren.Repo.insert(changeset)
 

@@ -23,9 +23,10 @@ defmodule Stevencwarren.ReadingList do
   def get_article!(id), do: Repo.get!(Article, id)
 
   def get_category!(slug) do
-    category = from(c in Category, where: c.slug == ^slug)
-    |> Repo.one!
-    |> Repo.preload([:articles])
+    category =
+      from(c in Category, where: c.slug == ^slug)
+      |> Repo.one!()
+      |> Repo.preload([:articles])
 
     {:ok, category}
   end
@@ -36,8 +37,8 @@ defmodule Stevencwarren.ReadingList do
 
   def mark_article_read!(article) do
     article
-    |> Article.changeset(%{ read: true })
-    |> Repo.update
+    |> Article.changeset(%{read: true})
+    |> Repo.update()
   end
 
   def recent_articles do

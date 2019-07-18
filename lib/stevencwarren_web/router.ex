@@ -37,12 +37,13 @@ defmodule StevencwarrenWeb.Router do
 
   scope "/", StevencwarrenWeb do
     pipe_through [:browser, :auth, :ensure_auth]
+
     resources "/reading-list", ArticleController, only: [:new, :create] do
       get "/mark-read", ArticleController, :mark_read
     end
   end
 
-  if Mix.env == :dev do
+  if Mix.env() == :dev do
     forward "/sent_emails", Bamboo.SentEmailViewerPlug
   end
 

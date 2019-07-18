@@ -26,8 +26,10 @@ defmodule Stevencwarren.ReadingList.Category do
   defp slugify(%Ecto.Changeset{valid?: true, changes: %{name: name}} = changeset) do
     query = from a in Category, where: a.name == ^name
 
-    slug = Stevencwarren.Repo.aggregate(query, :count, :id)
+    slug =
+      Stevencwarren.Repo.aggregate(query, :count, :id)
       |> generate_slug(name)
+
     change(changeset, slug: Slugger.slugify_downcase(slug))
   end
 

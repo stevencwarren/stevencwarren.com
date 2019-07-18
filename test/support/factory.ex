@@ -5,7 +5,7 @@ defmodule Stevencwarren.Factory do
   alias Stevencwarren.ReadingList.Category
 
   def article_factory do
-    %Article {
+    %Article{
       url: "http://foo.com",
       category: build(:category)
     }
