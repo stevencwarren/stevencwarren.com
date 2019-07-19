@@ -1,4 +1,8 @@
 defmodule Stevencwarren.UserManager.User do
+  @moduledoc """
+    The User schema for storing users email & passwords
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
   alias Comeonin.Bcrypt
@@ -18,7 +22,9 @@ defmodule Stevencwarren.UserManager.User do
     |> put_password_hash()
   end
 
-  defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+  defp put_password_hash(
+         %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
+       ) do
     change(changeset, password: Bcrypt.hashpwsalt(password))
   end
 

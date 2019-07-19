@@ -1,19 +1,23 @@
 defmodule StevencwarrenWeb.ContactController do
   use StevencwarrenWeb, :controller
-  alias Stevencwarren.{ ContactMailer, Mailer }
+  alias Stevencwarren.{ContactMailer, Mailer}
 
   def index(conn, _) do
     render(conn, "index.html")
   end
 
-  def create(conn, %{"contact" => %{ "honeypot" => honeypot }}) do
+  def create(conn, %{"contact" => %{"honeypot" => _honeypot}}) do
     conn
-    |> put_flash(:error, "You are either a robot or are filling in a forbidden field. If you are human, please try again")
+    |> put_flash(
+      :error,
+      "You are either a robot or are filling in a forbidden field. If you are human, please try again"
+    )
     |> redirect(to: "/contact")
   end
 
-  def create(conn, %{"contact" => params }) do
-    ContactMailer.contact_email(params)
+  def create(conn, %{"contact" => params}) do
+    params
+    |> ContactMailer.contact_email()
     |> Mailer.deliver_now()
 
     conn

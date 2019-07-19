@@ -1,4 +1,8 @@
 defmodule Stevencwarren.UserManager.Guardian do
+  @moduledoc """
+    Guardian module to parse tokens and load the user
+  """
+
   use Guardian, otp_app: :stevencwarren
 
   alias Stevencwarren.UserManager

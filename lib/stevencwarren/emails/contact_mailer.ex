@@ -1,4 +1,8 @@
 defmodule Stevencwarren.ContactMailer do
+  @moduledoc """
+    Mailer for the public contact form
+  """
+
   import Bamboo.Email
 
   def contact_email(%{"email" => email, "message" => message}) do

@@ -1,10 +1,15 @@
 defmodule Stevencwarren.ReadingList do
-  alias Stevencwarren.Repo
+  @moduledoc """
+    ReadingList Context that is responsible for showing categories
+    and their related articles
+  """
+
+  import Ecto.Query
   alias Stevencwarren.ReadingList.Article
   alias Stevencwarren.ReadingList.Category
-  import Ecto.Query
+  alias Stevencwarren.Repo
 
-  def article_changeset() do
+  def article_changeset do
     Article.changeset(%Article{}, %{})
   end
 
@@ -23,25 +28,29 @@ defmodule Stevencwarren.ReadingList do
   def get_article!(id), do: Repo.get!(Article, id)
 
   def get_category!(slug) do
-    category = from(c in Category, where: c.slug == ^slug)
-    |> Repo.one!
-    |> Repo.preload([:articles])
+    query = from(c in Category, where: c.slug == ^slug)
+
+    category =
+      query
+      |> Repo.one!()
+      |> Repo.preload([:articles])
 
     {:ok, category}
   end
 
   def list_categories do
-    order_by(Category, asc: :name) |> Repo.all()
+    Category |> order_by(asc: :name) |> Repo.all()
   end
 
   def mark_article_read!(article) do
     article
-    |> Article.changeset(%{ read: true })
-    |> Repo.update
+    |> Article.changeset(%{read: true})
+    |> Repo.update()
   end
 
   def recent_articles do
-    order_by(Article, desc: :inserted_at)
+    Article
+    |> order_by(desc: :inserted_at)
     |> limit(5)
     |> preload(:category)
     |> Repo.all()

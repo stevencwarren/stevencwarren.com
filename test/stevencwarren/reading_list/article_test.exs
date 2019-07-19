@@ -4,19 +4,21 @@ defmodule Stevencwarren.ReadingList.ArticleTest do
 
   describe "changesets" do
     test "validates that the url is required" do
-      changeset = Article.changeset(%Article{}, %{
-        title: "Foo title",
-        description: "foo"
-      })
+      changeset =
+        Article.changeset(%Article{}, %{
+          title: "Foo title",
+          description: "foo"
+        })
 
       refute changeset.valid?
     end
 
     test "the article changeset generates the slug from the title" do
-      changeset = Article.changeset(%Article{}, %{
-        title: "Foo Title 123!!!",
-        url: "https://foo.com"
-      })
+      changeset =
+        Article.changeset(%Article{}, %{
+          title: "Foo Title 123!!!",
+          url: "https://foo.com"
+        })
 
       {:ok, article} = Stevencwarren.Repo.insert(changeset)
 
@@ -24,20 +26,25 @@ defmodule Stevencwarren.ReadingList.ArticleTest do
     end
 
     test "the article changeset creates a unique slugs" do
-      Stevencwarren.Repo.insert(Article.changeset(%Article{}, %{
-        title: "Foo Title",
-        url: "https://foo.com"
-      }))
+      Stevencwarren.Repo.insert(
+        Article.changeset(%Article{}, %{
+          title: "Foo Title",
+          url: "https://foo.com"
+        })
+      )
 
-      Stevencwarren.Repo.insert(Article.changeset(%Article{}, %{
-        title: "Foo Title",
-        url: "https://foo.com"
-      }))
+      Stevencwarren.Repo.insert(
+        Article.changeset(%Article{}, %{
+          title: "Foo Title",
+          url: "https://foo.com"
+        })
+      )
 
-      changeset = Article.changeset(%Article{}, %{
-        title: "Foo Title",
-        url: "https://foo.com"
-      })
+      changeset =
+        Article.changeset(%Article{}, %{
+          title: "Foo Title",
+          url: "https://foo.com"
+        })
 
       {:ok, dup} = Stevencwarren.Repo.insert(changeset)
 

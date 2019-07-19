@@ -1,4 +1,8 @@
 defmodule Stevencwarren.UserManager do
+  @moduledoc """
+    Used to authenticate and create users
+  """
+
   alias Comeonin.Bcrypt
   import Ecto.Query, warn: false
   alias Stevencwarren.Repo
@@ -10,12 +14,13 @@ defmodule Stevencwarren.UserManager do
     case Repo.one(query) do
       nil ->
         Bcrypt.dummy_checkpw()
-        { :error, :invalid_credentials }
+        {:error, :invalid_credentials}
+
       user ->
         if Bcrypt.checkpw(plain_text_password, user.password) do
-          { :ok, user }
+          {:ok, user}
         else
-        { :error, :invalid_credentials }
+          {:error, :invalid_credentials}
         end
     end
   end

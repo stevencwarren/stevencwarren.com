@@ -4,7 +4,7 @@ defmodule StevencwarrenWeb.CategoryController do
   alias Stevencwarren.ReadingList
 
   def show(conn, %{"id" => slug}) do
-    {:ok, category } = ReadingList.get_category!(slug)
+    {:ok, category} = ReadingList.get_category!(slug)
 
     render(conn, "show.html", category: category)
   end

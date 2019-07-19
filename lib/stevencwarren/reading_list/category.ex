@@ -1,4 +1,10 @@
 defmodule Stevencwarren.ReadingList.Category do
+  @moduledoc """
+    This is the module for the ReadingList.Category
+
+    Categories are used to organize Articles
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
   import Ecto.Query, only: [from: 2]
@@ -26,8 +32,11 @@ defmodule Stevencwarren.ReadingList.Category do
   defp slugify(%Ecto.Changeset{valid?: true, changes: %{name: name}} = changeset) do
     query = from a in Category, where: a.name == ^name
 
-    slug = Stevencwarren.Repo.aggregate(query, :count, :id)
+    slug =
+      query
+      |> Stevencwarren.Repo.aggregate(:count, :id)
       |> generate_slug(name)
+
     change(changeset, slug: Slugger.slugify_downcase(slug))
   end
 

@@ -1,11 +1,15 @@
 defmodule Stevencwarren.Factory do
+  @moduledoc """
+    Test factories
+  """
+
   use ExMachina.Ecto, repo: Stevencwarren.Repo
-  alias Stevencwarren.UserManager.User
   alias Stevencwarren.ReadingList.Article
   alias Stevencwarren.ReadingList.Category
+  alias Stevencwarren.UserManager.User
 
   def article_factory do
-    %Article {
+    %Article{
       url: "http://foo.com",
       category: build(:category)
     }

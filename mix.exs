@@ -50,8 +50,7 @@ defmodule Stevencwarren.MixProject do
       {:slugger, "~> 0.3"},
       {:timex, "~> 3.5"},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 0.4", only: [:dev, :test]},
-      {:bamboo, "~> 1.2"},
+      {:bamboo, "~> 1.2"}
     ]
   end
 
