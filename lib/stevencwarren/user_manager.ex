@@ -1,4 +1,8 @@
 defmodule Stevencwarren.UserManager do
+  @moduledoc """
+    Used to authenticate and create users
+  """
+
   alias Comeonin.Bcrypt
   import Ecto.Query, warn: false
   alias Stevencwarren.Repo

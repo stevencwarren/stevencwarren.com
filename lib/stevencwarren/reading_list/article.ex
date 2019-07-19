@@ -1,7 +1,11 @@
 defmodule Stevencwarren.ReadingList.Article do
-  use Ecto.Schema
+  @moduledoc """
+    The Article module keeps track of Articles from the web.
+  """
+
   import Ecto.Changeset
   import Ecto.Query, only: [from: 2]
+  use Ecto.Schema
 
   alias Stevencwarren.ReadingList.Article
   alias Stevencwarren.ReadingList.Category
@@ -29,7 +33,8 @@ defmodule Stevencwarren.ReadingList.Article do
     query = from a in Article, where: a.title == ^title
 
     slug =
-      Stevencwarren.Repo.aggregate(query, :count, :id)
+      query
+      |> Stevencwarren.Repo.aggregate(:count, :id)
       |> generate_slug(title)
 
     change(changeset, slug: Slugger.slugify_downcase(slug))

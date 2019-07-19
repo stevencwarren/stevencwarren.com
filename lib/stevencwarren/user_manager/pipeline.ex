@@ -1,4 +1,8 @@
 defmodule Stevencwarren.UserManager.Pipeline do
+  @moduledoc """
+    Guardian Pipeline used for loading user sessions
+  """
+
   use Guardian.Plug.Pipeline,
     otp_app: :stevencwarren,
     error_handler: Stevencwarren.UserManager.ErrorHandler,

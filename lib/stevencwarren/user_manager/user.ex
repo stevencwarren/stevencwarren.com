@@ -1,4 +1,8 @@
 defmodule Stevencwarren.UserManager.User do
+  @moduledoc """
+    The User schema for storing users email & passwords
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
   alias Comeonin.Bcrypt

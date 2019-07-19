@@ -6,7 +6,7 @@ defmodule StevencwarrenWeb.ContactController do
     render(conn, "index.html")
   end
 
-  def create(conn, %{"contact" => %{"honeypot" => honeypot}}) do
+  def create(conn, %{"contact" => %{"honeypot" => _honeypot}}) do
     conn
     |> put_flash(
       :error,
@@ -16,7 +16,8 @@ defmodule StevencwarrenWeb.ContactController do
   end
 
   def create(conn, %{"contact" => params}) do
-    ContactMailer.contact_email(params)
+    params
+    |> ContactMailer.contact_email()
     |> Mailer.deliver_now()
 
     conn

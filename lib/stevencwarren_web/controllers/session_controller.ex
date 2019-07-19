@@ -1,7 +1,8 @@
 defmodule StevencwarrenWeb.SessionController do
   use StevencwarrenWeb, :controller
 
-  alias Stevencwarren.{UserManager, UserManager.User, UserManager.Guardian}
+  alias Stevencwarren.{UserManager, UserManager.Guardian, UserManager.User}
+  alias StevencwarrenWeb.Router
 
   def new(conn, _) do
     changeset = UserManager.change_user(%User{})
@@ -18,7 +19,8 @@ defmodule StevencwarrenWeb.SessionController do
   end
 
   def login(conn, %{"user" => %{"email" => email, "password" => password}}) do
-    UserManager.authenticate_user(email, password)
+    email
+    |> UserManager.authenticate_user(password)
     |> login_reply(conn)
   end
 
@@ -32,7 +34,7 @@ defmodule StevencwarrenWeb.SessionController do
     conn
     |> put_flash(:success, "You are authenticated as #{user.email}")
     |> Guardian.Plug.sign_in(user)
-    |> redirect(to: StevencwarrenWeb.Router.Helpers.admin_dashboard_path(conn, :index))
+    |> redirect(to: Router.Helpers.admin_dashboard_path(conn, :index))
   end
 
   defp login_reply({:error, reason}, conn) do

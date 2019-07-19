@@ -1,4 +1,9 @@
 defmodule Stevencwarren.UserManager.ErrorHandler do
+  @moduledoc """
+    Handles authentication errors and redirects unauthenticated users
+    to `/login`
+  """
+
   use StevencwarrenWeb, :controller
   import Plug.Conn
 

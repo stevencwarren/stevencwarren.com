@@ -39,14 +39,14 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "list_categories/0" do
     test "it returns all of the categories in alphabetical order" do
-      category_Z = insert(:category, %{name: "Z category"})
-      category_B = insert(:category, %{name: "B category"})
-      category_A = insert(:category, %{name: "A category"})
-      category_Y = insert(:category, %{name: "Y category"})
+      category_z = insert(:category, %{name: "Z category"})
+      category_b = insert(:category, %{name: "B category"})
+      category_a = insert(:category, %{name: "A category"})
+      category_y = insert(:category, %{name: "Y category"})
 
       categories = ReadingList.list_categories()
 
-      assert categories == [category_A, category_B, category_Y, category_Z]
+      assert categories == [category_a, category_b, category_y, category_z]
     end
   end
 

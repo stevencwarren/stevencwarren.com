@@ -1,8 +1,8 @@
 defmodule StevencwarrenWeb.ArticleController do
   use StevencwarrenWeb, :controller
 
-  alias Stevencwarren.UserManager.Guardian
   alias Stevencwarren.ReadingList
+  alias Stevencwarren.UserManager.Guardian
 
   def index(conn, _) do
     categories = ReadingList.list_categories()
