@@ -53,6 +53,8 @@ defmodule Stevencwarren.MixProject do
       {:bamboo, "~> 1.2"},
       {:edeliver, ">= 1.6.0"},
       {:distillery, "~> 2.0"},
+      {:httpoison, "~> 1.4"},
+      {:floki, "~> 0.21.0"},
     ]
   end
 
