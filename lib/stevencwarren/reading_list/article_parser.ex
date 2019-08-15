@@ -14,7 +14,6 @@ defmodule Stevencwarren.ReadingList.ArticleParser do
   end
 
   defp parse_response(body) do
-    require IEx; IEx.pry
     %{
       title: body |> find("title") |> text,
       description: body

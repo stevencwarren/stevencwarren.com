@@ -6,6 +6,7 @@ defmodule Stevencwarren.ReadingList do
 
   import Ecto.Query
   alias Stevencwarren.ReadingList.Article
+  alias Stevencwarren.ReadingList.ArticleParser
   alias Stevencwarren.ReadingList.Category
   alias Stevencwarren.Repo
 
@@ -16,7 +17,7 @@ defmodule Stevencwarren.ReadingList do
   def create_article(attrs \\ %{}) do
     changeset = Article.changeset(%Article{}, attrs)
 
-    Repo.insert(changeset)
+    article = Repo.insert(changeset)
   end
 
   def create_category(name) do
@@ -46,6 +47,14 @@ defmodule Stevencwarren.ReadingList do
     article
     |> Article.changeset(%{read: true})
     |> Repo.update()
+  end
+
+  def update_article_description(article) do
+    attrs = ArticleParser.get_title_and_description(article.url)
+
+    article
+    |> Article.changeset(attrs)
+    |> Repo.update
   end
 
   def recent_articles do
