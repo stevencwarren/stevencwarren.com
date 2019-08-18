@@ -29,7 +29,9 @@ defmodule StevencwarrenWeb.ArticleController do
 
   def create(conn, %{"article" => article_params}) do
     case ReadingList.create_article(article_params) do
-      {:ok, _article} ->
+      {:ok, article} ->
+        Task.async(ReadingList, :update_article_description, [article])
+
         conn
         |> redirect(to: Routes.article_path(conn, :index))
 

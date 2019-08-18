@@ -33,7 +33,7 @@ defmodule Stevencwarren.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.7"},
+      {:phoenix, "~> 1.4.9"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.0"},
@@ -50,7 +50,11 @@ defmodule Stevencwarren.MixProject do
       {:slugger, "~> 0.3"},
       {:timex, "~> 3.5"},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:bamboo, "~> 1.2"}
+      {:bamboo, "~> 1.2"},
+      {:edeliver, ">= 1.6.0"},
+      {:distillery, "~> 2.0"},
+      {:httpoison, "~> 1.4"},
+      {:floki, "~> 0.21.0"},
     ]
   end
 

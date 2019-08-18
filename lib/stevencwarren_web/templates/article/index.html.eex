@@ -3,9 +3,11 @@
   <div class="columns">
     <div class="column">
       <h2 class="subtitle">Recents</h2>
-      <ol>
+      <ol class="article-list">
         <%= for article <- @recent_articles do %>
-          <li><a href="<%= article.url %>" target="_blank"><%= article.url %></a> - <%= article.category.name  %></li>
+          <li>
+            <%= render StevencwarrenWeb.ArticleView, "_listing.html", article: article, conn: @conn %>
+          </li>
         <% end %>
       </ol>
     </div>
@@ -16,14 +18,14 @@
           <h2 class="subtitle">Categories</h2>
           <ul>
             <%= for category <- @categories do %>
-              <li><a href="<%= StevencwarrenWeb.Router.Helpers.category_path(@conn, :show, category.slug) %>"><%= category.name %></a></li>
+              <li><a href="<%= Routes.category_path(@conn, :show, category.slug) %>"><%= category.name %></a></li>
             <% end %>
           </ul>
         </div>
 
         <%= if @user do %>
           <div class="column is-full">
-            <a class="button is-link" href="<%= StevencwarrenWeb.Router.Helpers.article_path(@conn, :new) %>">Add an Article</a>
+            <a class="button is-link" href="<%= Routes.article_path(@conn, :new) %>">Add an Article</a>
           </div>
         <% end %>
       </div>
