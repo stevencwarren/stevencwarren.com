@@ -58,10 +58,11 @@ defmodule Stevencwarren.ReadingList do
   end
 
   def recent_articles do
-    Article
-    |> order_by(desc: :inserted_at)
-    |> limit(5)
-    |> preload(:category)
-    |> Repo.all()
+    Repo.all(from a in Article,
+      where: a.read == false,
+      order_by: [desc: :inserted_at],
+      limit: 5,
+      preload: [:category]
+    )
   end
 end

@@ -12,7 +12,7 @@ defmodule Stevencwarren.ReadingList.Article do
 
   schema "articles" do
     field :description, :string
-    field :read, :boolean
+    field :read, :boolean, default: false
     field :slug, :string
     field :title, :string
     field :url, :string

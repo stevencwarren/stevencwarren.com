@@ -3,7 +3,7 @@ defmodule Stevencwarren.Repo.Migrations.AddReadToArticles do
 
   def change do
     alter table(:articles) do
-      add :read, :boolean
+      add :read, :boolean, default: false
     end
 
     create index(:articles, [:read])

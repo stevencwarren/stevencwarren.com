@@ -1,5 +1,28 @@
 /* This file is for your main application css. */
 
+@import "../node_modules/nord/src/sass/nord.scss";
+
+$black: $nord0;
+$black-bis: $black;
+$black-ter: $black;
+$grey-darker: $nord2;
+$grey-dark: $nord3;
+$grey: $nord3;
+$grey-light: $nord4;
+$grey-lighter: $nord5;
+$white-ter: $nord6;
+$white-bis: $nord6;
+$orange: $nord12;
+$yellow: $nord13;
+$green: $nord14;
+$turquoise: $nord7;
+$cyan: $nord8;
+$blue: $nord9;
+$purple: $nord15;
+$red: $nord11;
+
+$body-background-color: $white;
+
 
 @import "../node_modules/bulma/bulma";
 @import "./main.css";
