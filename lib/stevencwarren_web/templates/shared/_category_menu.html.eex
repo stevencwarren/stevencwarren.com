@@ -1,0 +1,6 @@
+<h2 class="subtitle">Categories</h2>
+<ul>
+  <%= for category <- @categories do %>
+    <li><a href="<%= Routes.category_path(@conn, :show, category.slug) %>"><%= category.name %></a></li>
+  <% end %>
+</ul>
