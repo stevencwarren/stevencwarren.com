@@ -1,5 +1,6 @@
 <section class="section">
-  <div class="columns is-variable">
+  <div class="container">
+  <div class="columns">
     <div class="column is-one-third">
       <figure class="image is-650by866">
         <%= img_tag(Routes.static_path(@conn, "/images/portrait.jpg"), class: "has-shadow") %>
@@ -8,23 +9,30 @@
     <div class="column is-offset-1">
       <div class="content">
         <p>Hello, welcome to my small section of the internet. My name is Steven Warren, I am currently the VP of Engineering at an early stage startup, <a href="https://www.psychhub.com/" target="_blank">Psych Hub</a>.</p>
-        <p>During the day I spend most of my time building, testting, and refactoring a Rails app for Psych Hub. Outside of work I have been spending a lot of time working with Elixir. This site was build with Elixir, Phoenix, and Bulma.io</p>
+        <p>During the day I spend most of my time building, testting, and refactoring a Rails app for Psych Hub. Outside of work I have been spending a lot of time working with Elixir. This site was build with <a href="https://phoenixframework.org/" target="_blank">Phoenix</a> and <a href="https://bulma.io" target="_blank">Bulma</a></p>
         <p>Before joining the Psych Hub team, I was a Lead Engineer at <a href="https://www.gonoodle.com" target="_blank">GoNoodle</a> for six years. During my time there, I helped a team of engineers develop a platform to stream video to millions of teachers, parents, and kids every month. I also was a crucial member in implementing an advertising solution for custom content, developing a custom content publishing system, and maintained an API that supported web, iOS, and Android clients.</p>
         <p>I went to the University of Mississippi and graduated with a Bachelor of Business Administration focusing on Marketing. I also hold minors in English and History.</p>
         <p>When I am not working, I enjoy camping, cooking, and playing music in my RV with my son Crawford, daughter Willa, and my wife Jane.</p>
-
-        <h2 class="subtitle">Work History</h2>
-        <ul>
-          <li><a href="https://www.psychhub.com" target="_blank">Psych Hub</a> - VP of Engineering (2019 - Present)</li>
-          <li><a href="https://www.gonoodle.com" target="_blank">GoNoodle</a> - Lead Engineer (2013-2019)</li>
-          <li>Enhanceworks - Co-founder &amp; CTO (2013)</li>
-          <li>Centresource - Associate Development Manager &amp; Project Lead (2011-2013)</li>
-          <li>Athlon Sports - Developer (2010-2011)</li>
-          <li>Centresource - Developer (2007-2011)</li>
-        </ul>
-        <p>You can view my full resume at <a href="http://www.url.com" target="_blank">LinkedIn</a></p>
       </div>
     </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-3">Work History</h2>
+    <ul class="columns">
+      <div class="column is-one-third">
+        <li><a href="https://www.psychhub.com" target="_blank">Psych Hub</a> - VP of Engineering (2019 - Present)</li>
+        <li><a href="https://www.gonoodle.com" target="_blank">GoNoodle</a> - Lead Engineer (2013-2019)</li>
+        <li>Enhanceworks - Co-founder &amp; CTO (2013)</li>
+      </div>
+      <div class="column is-offset-1">
+        <li>Centresource - Associate Development Manager &amp; Project Lead (2011-2013)</li>
+        <li>Athlon Sports - Developer (2010-2011)</li>
+        <li>Centresource - Developer (2007-2011)</li>
+      </div>
+    </ul>
+    <p>You can view my full resume at <a href="http://www.url.com" target="_blank">LinkedIn</a></p>
+  </div>
+</section>

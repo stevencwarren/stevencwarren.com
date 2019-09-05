@@ -4837,6 +4837,11 @@ nopt@^4.0.1:
     abbrev "1"
     osenv "^0.1.4"
 
+nord@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/nord/-/nord-0.2.1.tgz#044ed8e00331c84a96dc4c670f080a72572c3cf9"
+  integrity sha1-BE7Y4AMxyEqW3ExnDwgKclcsPPk=
+
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
@@ -5250,7 +5255,7 @@ performance-now@^2.1.0:
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
 "phoenix@file:../deps/phoenix":
-  version "1.4.8"
+  version "1.4.9"
 
 "phoenix_html@file:../deps/phoenix_html":
   version "2.13.3"

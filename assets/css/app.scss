@@ -1,5 +1,6 @@
 /* This file is for your main application css. */
 
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700|Work+Sans:200&display=swap');
 @import "../node_modules/nord/src/sass/nord.scss";
 
 $black: $nord0;
@@ -24,8 +25,27 @@ $red: $nord11;
 
 $body-background-color: $white;
 
+$family-primary:'Raleway', sans-serif;
+$family-secondary: 'Work Sans', sans-serif;
+
+
+
+h1,h2,h3,h4,h5 {
+  font-family: $family-secondary;
+  font-weight: 400 !important;
+}
+
 
 @import "../node_modules/bulma/bulma";
+
+.title {
+  font-weight: 200 !important;
+}
+
+.subtitle {
+  font-weight: 400 !important;
+}
+
 @import "./main.css";
 @import "./contact.css";
 @import "./article.scss";
