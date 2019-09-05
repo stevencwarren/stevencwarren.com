@@ -17,7 +17,7 @@ defmodule Stevencwarren.ReadingList do
   def create_article(attrs \\ %{}) do
     changeset = Article.changeset(%Article{}, attrs)
 
-    article = Repo.insert(changeset)
+    Repo.insert(changeset)
   end
 
   def create_category(name) do

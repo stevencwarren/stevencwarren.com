@@ -26,6 +26,8 @@ defmodule StevencwarrenWeb.Router do
 
     get "/", PageController, :index
 
+    get "/projects", PageController, :projects
+
     get "/login", SessionController, :new
     post "/login", SessionController, :login
     post "/logout", SessionController, :logout

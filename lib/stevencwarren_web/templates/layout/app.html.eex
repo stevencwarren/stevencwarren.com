@@ -14,14 +14,15 @@
         <div class="container">
           <div class="navbar-start">
             <div class="navbar-brand">
-              <a href="/" class="navbar-item">stevencwarren</a>
+              <a href="/" class="navbar-item">Steven Warren</a>
             </div>
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
-              <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
+              <%= link("Projects", to: "/projects", class: "navbar-item navbar-link is-arrowless") %>
               <%= link("Contact", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
               <%= if logged_in?(@conn) do %>
+                <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
                 <%= link("Admin", to: "/admin/dashboard", class: "navbar-item navbar-link is-arrowless") %>
               <% end %>
             </div>
@@ -38,9 +39,7 @@
       <div class="alert has-background-danger has-text-white" role="alert">
         <p class="container"><%= get_flash(@conn, :error) %></p>
       </div>
-      <div class="container">
-        <%= render @view_module, @view_template, assigns %>
-      </div>
+      <%= render @view_module, @view_template, assigns %>
     </main>
   </body>
 </html>
