@@ -1,0 +1,21 @@
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle"><%= link("stevencwarren.com", to: "https://www.stevencwarren.com") %></h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle">
+      <%= link("psychhub.com", to: "https://www.psychhub.com") %>
+    </h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle">
+      <%= link("GoNoodle", to: "https://www.gonoodle.com") %>
+    </h2>
+  </div>
+</section>

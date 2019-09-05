@@ -17,7 +17,7 @@ defmodule Stevencwarren.ReadingList do
   def create_article(attrs \\ %{}) do
     changeset = Article.changeset(%Article{}, attrs)
 
-    article = Repo.insert(changeset)
+    Repo.insert(changeset)
   end
 
   def create_category(name) do
@@ -58,10 +58,11 @@ defmodule Stevencwarren.ReadingList do
   end
 
   def recent_articles do
-    Article
-    |> order_by(desc: :inserted_at)
-    |> limit(5)
-    |> preload(:category)
-    |> Repo.all()
+    Repo.all(from a in Article,
+      where: a.read == false,
+      order_by: [desc: :inserted_at],
+      limit: 5,
+      preload: [:category]
+    )
   end
 end

@@ -1,34 +1,24 @@
 <section class="section">
-  <h1 class="title">Articles that I need to read</h1>
-  <div class="columns">
-    <div class="column">
-      <h2 class="subtitle">Recents</h2>
-      <ol class="article-list">
-        <%= for article <- @recent_articles do %>
-          <li>
-            <%= render StevencwarrenWeb.ArticleView, "_listing.html", article: article, conn: @conn %>
-          </li>
-        <% end %>
-      </ol>
-    </div>
+  <div class="container">
+    <h1 class="title">Unread Articles</h1>
+    <div class="columns">
+      <div class="column">
+        <h2 class="subtitle">Recents</h2>
+        <ol class="article-list">
+          <%= for article <- @recent_articles do %>
+            <li>
+              <%= render StevencwarrenWeb.ArticleView, "_listing.html", article: article, conn: @conn %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
 
-    <div class="column is-one-quarter">
-      <div class="columns is-multiline">
-        <div class="column is-full">
-          <h2 class="subtitle">Categories</h2>
-          <ul>
-            <%= for category <- @categories do %>
-              <li><a href="<%= Routes.category_path(@conn, :show, category.slug) %>"><%= category.name %></a></li>
-            <% end %>
-          </ul>
-        </div>
+      <div class="column is-one-quarter">
+        <%= render StevencwarrenWeb.SharedView, "_category_menu.html", categories: @categories, conn: @conn %>
 
         <%= if @user do %>
-          <div class="column is-full">
-            <a class="button is-link" href="<%= Routes.article_path(@conn, :new) %>">Add an Article</a>
-          </div>
+          <a class="button is-link" href="<%= Routes.article_path(@conn, :new) %>">Add an Article</a>
         <% end %>
       </div>
     </div>
-  </div>
 </section>

@@ -6,7 +6,7 @@
 <% end %>
 <div class="actions columns is-vcentered">
   <div class="column is-narrow">
-    <%= link "Mark as Read", to: Routes.article_article_path(@conn, :mark_read, :post), class: 'button is-link' %>
+    <%= link "Mark as Read", to: Routes.article_article_path(@conn, :mark_read, @article), class: 'button is-link' %>
   </div>
   <div class="column">
     <em>Added on <%= @article.inserted_at.year %>-<%= @article.inserted_at.month %>-<%= @article.inserted_at.day %></em>

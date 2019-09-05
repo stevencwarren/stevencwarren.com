@@ -8,20 +8,21 @@
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body class="has-text-grey-dark">
+  <body class="site-container has-text-grey-dark">
     <header>
       <nav class="navbar is-dark">
         <div class="container">
           <div class="navbar-start">
             <div class="navbar-brand">
-              <a href="/" class="navbar-item">stevencwarren</a>
+              <a href="/" class="navbar-item">Steven Warren</a>
             </div>
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
-              <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
-              <%= link("Contact", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
+              <%= link("Projects", to: "/projects", class: "navbar-item navbar-link is-arrowless") %>
+              <%= link("Drop me a line", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
               <%= if logged_in?(@conn) do %>
+                <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
                 <%= link("Admin", to: "/admin/dashboard", class: "navbar-item navbar-link is-arrowless") %>
               <% end %>
             </div>
@@ -29,7 +30,7 @@
         </div>
       </nav>
     </header>
-    <main role="main">
+    <main class="site-content" role="main">
       <div class="alert has-background-info has-text-white" role="alert">
         <p class="container">
           <%= get_flash(@conn, :info) %>
@@ -38,9 +39,24 @@
       <div class="alert has-background-danger has-text-white" role="alert">
         <p class="container"><%= get_flash(@conn, :error) %></p>
       </div>
-      <div class="container">
-        <%= render @view_module, @view_template, assigns %>
-      </div>
+      <%= render @view_module, @view_template, assigns %>
     </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-four-fifths">
+            <h2 class="subtitle is-5">Where to find me</h2>
+            <ul>
+              <li><a href="http://github.com/stevencwarren" target="_blank">Github</a></li>
+              <li><a href="http://www.linkedin.com/in/stevenwarren/" target="_blank">LinkedIn</a></li>
+              <li><a href="http://twitter.com/stevencwarren" target="_blank">Twitter</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <p>&copy Copyright 2019</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
