@@ -6,23 +6,23 @@ defmodule StevencwarrenWeb.ContactController do
     render(conn, "index.html")
   end
 
-  def create(conn, %{"contact" => %{"honeypot" => _honeypot}}) do
-    conn
-    |> put_flash(
-      :error,
-      "You are either a robot or are filling in a forbidden field. If you are human, please try again"
-    )
-    |> redirect(to: "/contact")
-  end
-
   def create(conn, %{"contact" => params}) do
-    params
-    |> ContactMailer.contact_email()
-    |> Mailer.deliver_now()
+    if params["honeypot"] != nil do
+      params
+      |> ContactMailer.contact_email()
+      |> Mailer.deliver_now()
 
-    conn
-    |> put_flash(:info, "Thanks for contacting me, I'll reply as soon as I can!")
-    |> redirect(to: "/contact")
+      conn
+      |> put_flash(:info, "Thanks for contacting me, I'll reply as soon as I can!")
+      |> redirect(to: "/contact")
+    else
+      conn
+      |> put_flash(
+        :error,
+        "You are either a robot or are filling in a forbidden field. If you are human, please try again"
+      )
+      |> redirect(to: "/contact")
+    end
   end
 
   def create(conn, _) do
