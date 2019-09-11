@@ -19,7 +19,6 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
-              <%= link("Projects", to: "/projects", class: "navbar-item navbar-link is-arrowless") %>
               <%= link("Drop me a line", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
               <%= if logged_in?(@conn) do %>
                 <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
