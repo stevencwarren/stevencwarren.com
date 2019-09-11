@@ -5,6 +5,10 @@ defmodule StevencwarrenWeb.PageController do
     render(conn, "index.html")
   end
 
+  def health(conn, _params) do
+    render(conn, "health.html")
+  end
+
   def projects(conn, _params) do
     render(conn, "projects.html")
   end
