@@ -36,7 +36,6 @@ npm-debug.log
 builder
 
 config/prod.secret.exs
-config/releases.exs
 rel
 .elixir_ls
 .vscode
