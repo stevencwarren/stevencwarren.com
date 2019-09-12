@@ -3,8 +3,6 @@
 mix deps.get --only prod
 MIX_ENV=prod mix compile
 
-# Run migrations
-MIX_ENV=prod mix ecto.migrate
 
 # Compile assets
 npm install --prefix ./assets
@@ -14,3 +12,6 @@ mix phx.digest
 # Remove the existing release directory and build the release
 rm -rf "_build"
 MIX_ENV=prod mix release
+
+# Run migrations
+MIX_ENV=prod mix ecto.migrate
