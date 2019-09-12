@@ -62,3 +62,8 @@ config :stevencwarren, StevencwarrenWeb.Endpoint, server: true
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
+# import_config "prod.secret.exs"
+
+config :stevencwarren, Stevencwarren.Mailer,
+  adapter: Bamboo.SendGridAdapter,
+  api_key: { :system, "SENDGRID_API_KEY" }
