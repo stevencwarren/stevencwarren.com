@@ -4,7 +4,7 @@ mix deps.get --only prod
 MIX_ENV=prod mix compile
 
 # Run migrations
-mix ecto.migrate
+MIX_ENV=prod mix ecto.migrate
 
 # Compile assets
 npm install --prefix ./assets
