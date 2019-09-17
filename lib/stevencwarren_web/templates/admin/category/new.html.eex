@@ -1,0 +1,15 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Create a new Category</h1>
+    <%= form_for @changeset, Routes.admin_category_path(@conn, :create), fn f -> %>
+      <div class="field">
+        <%= label f, :name, class: "label" %>
+        <div class="control">
+          <%= text_input f, :name, class: "input" %>
+          <p class="help is-danger"> <%= error_tag(f, :name) %> </p>
+        </div>
+      </div>
+      <%= submit "Submit", class: "button is-primary" %>
+    <% end %>
+  </div>
+</section>
