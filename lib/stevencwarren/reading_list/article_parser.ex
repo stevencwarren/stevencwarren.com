@@ -8,7 +8,8 @@ defmodule Stevencwarren.ReadingList.ArticleParser do
   end
 
   defp fetch_data(url) do
-    {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get url, [], [:follow_redirect]
+    {:ok, %HTTPoison.Response{status_code: 200, body: body}} =
+      HTTPoison.get(url, [], [:follow_redirect])
 
     body
   end
@@ -16,10 +17,11 @@ defmodule Stevencwarren.ReadingList.ArticleParser do
   defp parse_response(body) do
     %{
       title: body |> find("title") |> text,
-      description: body
-      |> find("meta[name='description']")
-      |> attribute("content")
-      |> text
+      description:
+        body
+        |> find("meta[name='description']")
+        |> attribute("content")
+        |> text
     }
   end
 end

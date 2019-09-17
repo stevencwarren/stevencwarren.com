@@ -1,5 +1,5 @@
 defmodule Stevencwarren.Release do
-   @app :stevencwarren
+  @app :stevencwarren
 
   def migrate do
     for repo <- repos() do

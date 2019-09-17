@@ -67,7 +67,9 @@ defmodule Stevencwarren.ReadingListTest do
       article_4 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -2))
       article_5 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -1))
       _article_6 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -7))
-      _unpublished_article= insert(:article, inserted_at: Timex.shift(Timex.now(), days: -1), read: true)
+
+      _unpublished_article =
+        insert(:article, inserted_at: Timex.shift(Timex.now(), days: -1), read: true)
 
       articles = ReadingList.recent_articles()
 

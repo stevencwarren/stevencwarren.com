@@ -6,7 +6,7 @@ defmodule StevencwarrenWeb.Admin.CategoryController do
   alias Stevencwarren.ReadingList.Category
 
   def index(conn, _params) do
-    render(conn, "index.html", categories: ReadingList.list_categories)
+    render(conn, "index.html", categories: ReadingList.list_categories())
   end
 
   def new(conn, _params) do
@@ -21,6 +21,7 @@ defmodule StevencwarrenWeb.Admin.CategoryController do
         conn
         |> put_flash(:info, "Category created successfully")
         |> redirect(to: Routes.admin_category_path(conn, :index))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
         |> put_flash(:error, "There was an error with your submission")
