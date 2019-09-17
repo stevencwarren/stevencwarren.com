@@ -17,7 +17,7 @@
             <td title="Name"><%= category.name %></td>
             <td>
               <%= link("edit", to: Routes.admin_category_path(@conn, :edit, category)) %>&nbsp;
-              <%= link("delete", to: Routes.admin_category_path(@conn, :delete, category), data: [confirm: "Are you sure you want to delete #{category.name}"]) %>
+              <%= link("delete", to: Routes.admin_category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure you want to delete #{category.name}"]) %>
             </td>
           </tr>
         <% end %>

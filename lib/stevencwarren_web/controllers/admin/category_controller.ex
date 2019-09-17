@@ -17,7 +17,7 @@ defmodule StevencwarrenWeb.Admin.CategoryController do
 
   def create(conn, %{"category" => category_params}) do
     case ReadingList.create_category(category_params) do
-      {:ok, category} ->
+      {:ok, _} ->
         conn
         |> put_flash(:info, "Category created successfully")
         |> redirect(to: Routes.admin_category_path(conn, :index))
@@ -39,7 +39,7 @@ defmodule StevencwarrenWeb.Admin.CategoryController do
     category = Repo.get!(Category, id)
 
     case ReadingList.update_category(category, category_params) do
-      {:ok, category} ->
+      {:ok, _} ->
         conn
         |> put_flash(:info, "Category updated successfully.")
         |> redirect(to: Routes.admin_category_path(conn, :index))
