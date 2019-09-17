@@ -14,14 +14,18 @@ defmodule Stevencwarren.ReadingList do
     Article.changeset(%Article{}, %{})
   end
 
+  def category_changeset(%Category{} = category) do
+    Category.changeset(category, %{})
+  end
+
   def create_article(attrs \\ %{}) do
     changeset = Article.changeset(%Article{}, attrs)
 
     Repo.insert(changeset)
   end
 
-  def create_category(name) do
-    changeset = Category.changeset(%Category{}, %{name: name})
+  def create_category(params) do
+    changeset = Category.changeset(%Category{}, params)
 
     Repo.insert(changeset)
   end
@@ -55,6 +59,12 @@ defmodule Stevencwarren.ReadingList do
     article
     |> Article.changeset(attrs)
     |> Repo.update
+  end
+
+  def update_category(category, attrs) do
+    category
+    |> Category.changeset(attrs)
+    |> Repo.update()
   end
 
   def recent_articles do

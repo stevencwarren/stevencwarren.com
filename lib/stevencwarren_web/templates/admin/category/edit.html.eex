@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Edit - <%= @category.name %></h1>
+      <%= form_for @changeset, Routes.admin_category_path(@conn, :update, @category.slug), fn f -> %>
+        <div class="field">
+          <%= label f, :name, class: "label" %>
+          <div class="control">
+            <%= text_input f, :name, class: "input" %>
+          </div>
+        </div>
+        <%= submit "Submit" %>
+      <% end %>
+  </div>
+</section>

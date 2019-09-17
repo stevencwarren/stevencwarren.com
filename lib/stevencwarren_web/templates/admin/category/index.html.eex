@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <h1 class="title column is-11">Categories</h1>
+      <div class="column has-text-right">
+        <%= link("New", to: Routes.admin_category_path(@conn, :new), class: "button is-primary") %>
+      </div>
+    </div>
+    <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+      <thead>
+        <th title="Name">Name</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <%= for category <- @categories  do %>
+          <tr>
+            <td title="Name"><%= category.name %></td>
+            <td>
+              <%= link("edit", to: Routes.admin_category_path(@conn, :edit, category)) %>&nbsp;
+              <%= link("delete", to: Routes.admin_category_path(@conn, :delete, category), data: [confirm: "Are you sure you want to delete #{category.name}"]) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
