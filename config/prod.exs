@@ -66,4 +66,4 @@ config :stevencwarren, StevencwarrenWeb.Endpoint, server: true
 
 config :stevencwarren, Stevencwarren.Mailer,
   adapter: Bamboo.SendGridAdapter,
-  api_key: { :system, "SENDGRID_API_KEY" }
+  api_key: {:system, "SENDGRID_API_KEY"}

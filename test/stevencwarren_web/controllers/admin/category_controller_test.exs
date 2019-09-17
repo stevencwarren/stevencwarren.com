@@ -13,17 +13,18 @@ defmodule StevencwarrenWeb.Admin.CategoryControllerTest do
 
     {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
 
-    { :ok, token: token }
+    {:ok, token: token}
   end
 
   describe "index" do
-    test "returns all of the categories", %{ conn: conn, token: token } do
+    test "returns all of the categories", %{conn: conn, token: token} do
       insert(:category, %{name: "A Category"})
       insert(:category, %{name: "B Category"})
       insert(:category, %{name: "C Category"})
       insert(:category, %{name: "Z Category"})
 
-      conn = conn
+      conn =
+        conn
         |> put_req_header("authorization", "Bearer: " <> token)
         |> get(Routes.admin_category_path(conn, :index))
 
@@ -35,35 +36,38 @@ defmodule StevencwarrenWeb.Admin.CategoryControllerTest do
   end
 
   describe "new" do
-    test "it renders the new category form", %{ conn: conn, token: token } do
-      conn = conn
+    test "it renders the new category form", %{conn: conn, token: token} do
+      conn =
+        conn
         |> put_req_header("authorization", "Bearer: " <> token)
         |> get(Routes.admin_category_path(conn, :new))
 
-        assert html_response(conn, 200) =~ "Create a new Category"
-        assert html_response(conn, 200) =~ "Name"
-        assert html_response(conn, 200) =~ "Submit"
+      assert html_response(conn, 200) =~ "Create a new Category"
+      assert html_response(conn, 200) =~ "Name"
+      assert html_response(conn, 200) =~ "Submit"
     end
   end
 
   describe "create" do
-    test "when there are valid parameters", %{ conn: conn, token: token } do
-      params = %{ "category" => %{ name: "Foo" }}
+    test "when there are valid parameters", %{conn: conn, token: token} do
+      params = %{"category" => %{name: "Foo"}}
 
-      conn = conn
+      conn =
+        conn
         |> put_req_header("authorization", "Bearer: " <> token)
         |> post(Routes.admin_category_path(conn, :create), params)
 
-        assert get_flash(conn, :info) =~ "Category created successfully"
+      assert get_flash(conn, :info) =~ "Category created successfully"
 
-        last_category = Query.last(Category) |> Repo.one
-        assert last_category.name == "Foo"
+      last_category = Query.last(Category) |> Repo.one()
+      assert last_category.name == "Foo"
     end
 
-    test "when there are invalid parameters", %{ conn: conn, token: token } do
-      params = %{ "category" => %{ foo: "bar" }}
+    test "when there are invalid parameters", %{conn: conn, token: token} do
+      params = %{"category" => %{foo: "bar"}}
 
-      conn = conn
+      conn =
+        conn
         |> put_req_header("authorization", "Bearer: " <> token)
         |> post(Routes.admin_category_path(conn, :create), params)
 
