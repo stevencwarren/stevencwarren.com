@@ -56,5 +56,7 @@ defmodule StevencwarrenWeb.Router do
     pipe_through [:browser, :auth, :ensure_auth]
 
     get "/dashboard", DashboardController, :index
+
+    resources "/categories", CategoryController
   end
 end
