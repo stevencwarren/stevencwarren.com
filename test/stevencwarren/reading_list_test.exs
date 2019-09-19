@@ -4,6 +4,7 @@ defmodule Stevencwarren.ReadingListTest do
 
   alias Stevencwarren.Repo
   import Stevencwarren.Factory
+  import Ecto.Query
 
   alias Stevencwarren.ReadingList
   alias Stevencwarren.ReadingList.{Article, Category}
@@ -14,11 +15,30 @@ defmodule Stevencwarren.ReadingListTest do
     end
   end
 
+  describe "category_changeset/1" do
+    test "it returns an empty changeset" do
+      assert Category.changeset(%Category{}, %{}) == ReadingList.category_changeset(%Category{})
+    end
+  end
+
+  describe "create_article/1" do
+    test "it creates an article with the supplied params" do
+      ReadingList.create_article(%{ url: "https://stevencwarren.com"})
+
+      last_article = Article |>last |> Repo.one
+
+      assert last_article.url == "https://stevencwarren.com"
+      assert Repo.aggregate(Article, :count, :id) == 1
+    end
+  end
+
   describe "create_category/1" do
     test "it creates a category from the supplied params" do
-      {:ok, category} = ReadingList.create_category(%{ name: "test category"})
+      ReadingList.create_category(%{ name: "test category"})
 
-      assert category.name == "test category"
+      last_category = Category |>last |> Repo.one
+
+      assert last_category.name == "test category"
       assert Repo.aggregate(Category, :count, :id) == 1
     end
   end
