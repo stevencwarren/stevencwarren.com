@@ -1,5 +1,6 @@
 defmodule Stevencwarren.ReadingList.ArticleParser do
   import Floki
+  alias Stevencwarren.HttpAdapter
 
   def get_title_and_description(url) do
     url
@@ -8,8 +9,7 @@ defmodule Stevencwarren.ReadingList.ArticleParser do
   end
 
   defp fetch_data(url) do
-    {:ok, %HTTPoison.Response{status_code: 200, body: body}} =
-      HTTPoison.get(url, [], [:follow_redirect])
+    {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HttpAdapter.get(url, [], [:follow_redirect])
 
     body
   end
