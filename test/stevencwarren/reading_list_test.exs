@@ -27,13 +27,17 @@ defmodule Stevencwarren.ReadingListTest do
   describe "get_category/1" do
     test "it returns a category when it has a correct slug" do
       category = insert(:category, %{name: "a category", slug: "a-category"})
-      {:ok, result} = ReadingList.get_category!("a-category")
+                 |> Repo.preload(:articles)
 
-      assert result.id == category.id
+      assert ReadingList.get_category!("a-category") == category
     end
 
-    @tag :skip
-    test "it returns an error when the slug doesn't exists" do
+    test "it raises a 404 when the category is not found" do
+      insert(:category, %{name: "a category", slug: "a-category"})
+
+      assert_raise Ecto.NoResultsError,  fn ->
+        ReadingList.get_category!("foo")
+      end
     end
   end
 

@@ -1,5 +1,6 @@
 defmodule Stevencwarren.ReadingList do
   @moduledoc """
+
     ReadingList Context that is responsible for showing categories
     and their related articles
   """
@@ -33,14 +34,9 @@ defmodule Stevencwarren.ReadingList do
   def get_article!(id), do: Repo.get!(Article, id)
 
   def get_category!(slug) do
-    query = from(c in Category, where: c.slug == ^slug)
-
-    category =
-      query
-      |> Repo.one!()
-      |> Repo.preload([:articles])
-
-    {:ok, category}
+    from(c in Category, where: c.slug == ^slug)
+    |> Repo.one!()
+    |> Repo.preload([:articles])
   end
 
   def list_categories do
