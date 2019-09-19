@@ -17,7 +17,7 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "create_category/1" do
     test "it creates a category from the supplied params" do
-      {:ok, category} = ReadingList.create_category("test category")
+      {:ok, category} = ReadingList.create_category(%{ name: "test category"})
 
       assert category.name == "test category"
       assert Repo.aggregate(Category, :count, :id) == 1
