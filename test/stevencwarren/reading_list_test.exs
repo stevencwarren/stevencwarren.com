@@ -6,8 +6,7 @@ defmodule Stevencwarren.ReadingListTest do
   import Stevencwarren.Factory
 
   alias Stevencwarren.ReadingList
-  alias Stevencwarren.ReadingList.Article
-  alias Stevencwarren.ReadingList.Category
+  alias Stevencwarren.ReadingList.{Article, Category}
 
   describe "article_changeset/0" do
     test "it returns an empty changeset" do

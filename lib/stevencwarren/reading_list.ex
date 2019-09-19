@@ -6,9 +6,7 @@ defmodule Stevencwarren.ReadingList do
   """
 
   import Ecto.Query
-  alias Stevencwarren.ReadingList.Article
-  alias Stevencwarren.ReadingList.ArticleParser
-  alias Stevencwarren.ReadingList.Category
+  alias Stevencwarren.ReadingList.{Article, ArticleParser,Category}
   alias Stevencwarren.Repo
 
   def article_changeset do
