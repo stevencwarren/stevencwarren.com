@@ -4,6 +4,7 @@
     "sass-loader": "^7.1.0"
   },
   "dependencies": {
-    "nord": "^0.2.1"
+    "nord": "^0.2.1",
+    "phoenix_live_view": "file:../deps/phoenix_live_view"
   }
 }
