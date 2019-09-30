@@ -10,12 +10,12 @@ defmodule StevencwarrenWeb.ArticleController do
     recent_articles = ReadingList.recent_articles()
     user = Guardian.Plug.current_resource(conn)
 
-    LiveView.Controller.live_render(conn, StevencwarrenWeb.ArticleLiveView, session: %{
+    render(conn, "index.html",
       categories: categories,
       recent_articles: recent_articles,
       changeset: ReadingList.article_changeset(),
       user: user
-    })
+    )
   end
 
   def new(conn, _) do

@@ -1,0 +1,49 @@
+<div class="columns is-multiline">
+  <div class="column is-full">
+    <%= if @user do %>
+      <h2 class="subtitle is-5">Add a new Article to your reading list</h1>
+
+      <%= form_for @changeset, "#", [phx_change: :validate, phx_submit: :save], fn f -> %>
+        <div class="field">
+          <label class="label">URL</label>
+          <div class="control">
+            <%= text_input f, :url, class: "input" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <div class="select">
+              <%= select f, :category_id, Enum.map(@categories, &{&1.name, &1.id}), prompt: "Choose a category" %>
+            </div>
+          </div>
+        </div>
+
+        <%= submit "Submit", class: "button is-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="column">
+    <h2 class="subtitle">Recently added articles</h2>
+    <ol class="article-list">
+      <%= for article <- @recent_articles do %>
+        <li>
+          <a href="<%= article.url %>" target="_blank">
+            <%= link_text(article) %>
+          </a>
+          <%= if article.description do %>
+            <p><%= article.description %></p>
+          <% end %>
+          <div class="actions columns is-vcentered">
+            <div class="column is-narrow">
+              <%= link "Mark as Read", to: "#", class: 'button is-link' %>
+            </div>
+            <div class="column">
+              <em>Added on <%= article.inserted_at.year %>-<%= article.inserted_at.month %>-<%= article.inserted_at.day %></em>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
