@@ -12,10 +12,16 @@
 #
 
 alias Stevencwarren.ReadingList
+alias Stevencwarren.UserManager.User
+alias Stevencwarren.Repo
 
 # Creating categories
-ReadingList.create_category("Web Development")
-ReadingList.create_category("Economics")
-ReadingList.create_category("Politics")
-ReadingList.create_category("Fiction")
-ReadingList.create_category("Misc")
+ReadingList.create_category(%{ name: "Web Development"})
+ReadingList.create_category(%{ name: "Economics"})
+ReadingList.create_category(%{ name: "Politics"})
+ReadingList.create_category(%{ name: "Fiction"})
+ReadingList.create_category(%{ name: "Misc"})
+
+# Create User
+User.changeset(%User{}, %{ email: "steven@stevencwarren.com", password: "Passw0rd!" })
+|> Repo.insert!

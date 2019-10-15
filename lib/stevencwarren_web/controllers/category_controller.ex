@@ -5,7 +5,7 @@ defmodule StevencwarrenWeb.CategoryController do
 
   def show(conn, %{"id" => slug}) do
     categories = ReadingList.list_categories()
-    {:ok, category} = ReadingList.get_category!(slug)
+    category = ReadingList.get_category!(slug)
 
     render(conn, "show.html", category: category, categories: categories)
   end
