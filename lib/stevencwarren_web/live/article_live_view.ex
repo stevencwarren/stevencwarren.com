@@ -5,7 +5,21 @@ defmodule StevencwarrenWeb.ArticleLiveView do
     StevencwarrenWeb.ArticleView.render("_articles.html", assigns)
   end
 
-  def mount(%{categories: categories, changeset: changeset, recent_articles: recent_articles, user: user}, socket) do
-    {:ok, assign(socket, %{categories: categories, changeset: changeset, recent_articles: recent_articles, user: user}) }
+  def mount(
+        %{
+          categories: categories,
+          changeset: changeset,
+          recent_articles: recent_articles,
+          user: user
+        },
+        socket
+      ) do
+    {:ok,
+     assign(socket, %{
+       categories: categories,
+       changeset: changeset,
+       recent_articles: recent_articles,
+       user: user
+     })}
   end
 end
