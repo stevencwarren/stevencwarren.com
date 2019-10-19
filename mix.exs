@@ -51,7 +51,7 @@ defmodule Stevencwarren.MixProject do
       {:timex, "~> 3.5"},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:bamboo, "~> 1.2"},
-      {:httpoison, "~> 1.4"},
+      {:httpoison, "~> 1.6"},
       {:floki, "~> 0.21.0"}
     ]
   end
