@@ -2,10 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :stevencwarren, Stevencwarren.Repo,
-  username: "swarren",
-  password: "",
-  database: "stevencwarren_test",
-  hostname: "localhost",
+  url: System.get_env("DATABASE_URL"),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
