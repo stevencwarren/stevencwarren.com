@@ -7,14 +7,15 @@ jobs:
     runs-on: ubuntu-18.04
 
     services:
-      db:
+      postgres:
         image: postgres:11
-        ports: ['5432:5432']
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: stevencwarren_test
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - uses: actions/checkout@v1.0.0
@@ -22,7 +23,7 @@ jobs:
         with:
           otp-version: 22.x
           elixir-version: 1.9.x
-      - run: MIX_ENV=test mix deps.get
-      - run: MIX_ENV=test DATBASE_URL=postgresql://postgres:postgres@localhost/stevencwarren_test mix ecto.create
-      - run: MIX_ENV=test DATBASE_URL=postgresql://postgres:postgres@localhost/stevencwarren_test  mix ecto.load
-      - run: MIX_ENV=test DATBASE_URL=postgresql://postgres:postgres@localhost/stevencwarren_test  mix test
+      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix deps.get
+      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix ecto.create
+      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix ecto.migrate
+      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix test

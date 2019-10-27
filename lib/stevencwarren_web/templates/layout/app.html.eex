@@ -11,15 +11,18 @@
   </head>
   <body class="site-container has-text-grey-dark">
     <header>
-      <nav class="navbar is-dark">
+      <nav class="navbar">
         <div class="container">
           <div class="navbar-start">
             <div class="navbar-brand">
             </div>
+            <a href="http://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless" target="_blank">Github</a>
+            <a href="http://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless" target="_blank">LinkedIn</a>
+            <a href="http://twitter.com/stevencwarren" class="navbar-item navbar-link is-arrowless" target="_blank">Twitter</a>
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
-              <%= link("Drop me a line", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
+              <%= link("Contact Me", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
               <%= if logged_in?(@conn) do %>
                 <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
                 <%= link("Admin", to: "/admin/dashboard", class: "navbar-item navbar-link is-arrowless") %>
@@ -40,23 +43,6 @@
       </div>
       <%= render @view_module, @view_template, assigns %>
     </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-four-fifths">
-            <h2 class="subtitle is-5">Where to find me</h2>
-            <ul>
-              <li><a href="http://github.com/stevencwarren" target="_blank">Github</a></li>
-              <li><a href="http://www.linkedin.com/in/stevenwarren/" target="_blank">LinkedIn</a></li>
-              <li><a href="http://twitter.com/stevencwarren" target="_blank">Twitter</a></li>
-            </ul>
-          </div>
-          <div class="column">
-            <p>&copy Copyright 2019</p>
-          </div>
-        </div>
-      </div>
-    </footer>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148179118-1"></script>
     <script>
