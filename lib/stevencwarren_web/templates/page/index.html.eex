@@ -2,12 +2,7 @@
   <div class="container">
     <div class="hero-body">
       <div class="columns is-multiline is-vcentered">
-        <div class="column is-one-third">
-          <figure class="image is-650by866">
-            <%= img_tag(Routes.static_path(@conn, "/images/portrait.jpg"), class: "has-shadow") %>
-          </figure>
-        </div>
-        <div class="column is-offset-2">
+        <div class="column has-text-centered">
           <h1 class="title is-1">Steven Warren</h1>
           <h1 class="title is-3">Developer, Dad, Overalls Advocate</h1>
         </div>
@@ -92,7 +87,6 @@
         <h3 class="subtitle is-5">Bread &amp; Butter</h3>
         <div class="column is-half has-text-primary has-text-weight-bold">IE6</div>
       </div>
-
     </div>
   </div>
 </section>
