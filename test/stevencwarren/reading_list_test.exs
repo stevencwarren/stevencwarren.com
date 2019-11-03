@@ -43,6 +43,20 @@ defmodule Stevencwarren.ReadingListTest do
     end
   end
 
+  describe "get_article/1" do
+    test "it returns an article when an id is passed for an existing article" do
+      article = insert(:article, %{url: "https://www.stevencwarren.com"})
+
+      assert ReadingList.get_article!(article.id) == article
+    end
+
+    test "it returns an Ecto.NoResultsError when an id is passed for an unknown article" do
+      article = insert(:article, %{url: "https://www.stevencwarren.com"})
+
+      assert_raise Ecto.NoResultsError, fn -> ReadingList.get_article!(article.id + 1) end
+    end
+  end
+
   describe "get_category/1" do
     test "it returns a category when it has a correct slug" do
       category = insert(:category, %{name: "a category", slug: "a-category"})
@@ -84,12 +98,13 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "recent_articles/0" do
     test "it returns the 5 recently added articles" do
-      article_1 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -5))
-      article_2 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -4))
-      article_3 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -3))
-      article_4 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -2))
-      article_5 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -1))
-      _article_6 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -7))
+      category = insert(:category)
+      article_1 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -5), category: category)
+      article_2 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -4), category: category)
+      article_3 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -3), category: category)
+      article_4 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -2), category: category)
+      article_5 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -1), category: category)
+      _article_6 = insert(:article, inserted_at: Timex.shift(Timex.now(), days: -7), category: category)
 
       _unpublished_article =
         insert(:article, inserted_at: Timex.shift(Timex.now(), days: -1), read: true)

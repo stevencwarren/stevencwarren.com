@@ -11,7 +11,6 @@ defmodule Stevencwarren.Factory do
   def article_factory do
     %Article{
       url: "http://foo.com",
-      category: build(:category)
     }
   end
 
