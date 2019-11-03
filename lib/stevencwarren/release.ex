@@ -1,4 +1,6 @@
 defmodule Stevencwarren.Release do
+  @moduledoc false
+
   @app :stevencwarren
 
   def migrate do

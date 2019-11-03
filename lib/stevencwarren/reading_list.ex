@@ -1,12 +1,11 @@
 defmodule Stevencwarren.ReadingList do
   @moduledoc """
-
     ReadingList Context that is responsible for showing categories
     and their related articles
   """
 
   import Ecto.Query
-  alias Stevencwarren.ReadingList.{Article, ArticleParser,Category}
+  alias Stevencwarren.ReadingList.{Article, ArticleParser, Category}
   alias Stevencwarren.Repo
 
   def article_changeset do
@@ -32,7 +31,9 @@ defmodule Stevencwarren.ReadingList do
   def get_article!(id), do: Repo.get!(Article, id)
 
   def get_category!(slug) do
-    from(c in Category, where: c.slug == ^slug)
+    query = from(c in Category, where: c.slug == ^slug)
+
+    query
     |> Repo.one!()
     |> Repo.preload([:articles])
   end

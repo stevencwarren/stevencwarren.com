@@ -59,7 +59,8 @@ defmodule StevencwarrenWeb.Admin.CategoryControllerTest do
 
       assert get_flash(conn, :info) =~ "Category created successfully"
 
-      last_category = Query.last(Category) |> Repo.one()
+      query = Query.last(Category)
+      last_category =  query |> Repo.one()
       assert last_category.name == "Foo"
     end
 

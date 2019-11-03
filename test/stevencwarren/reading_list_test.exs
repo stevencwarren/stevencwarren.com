@@ -23,7 +23,7 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "create_article/1" do
     test "it creates an article with the supplied params" do
-      ReadingList.create_article(%{ url: "https://stevencwarren.com"})
+      ReadingList.create_article(%{url: "https://stevencwarren.com"})
 
       last_article = Article |>last |> Repo.one
 
@@ -34,7 +34,7 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "create_category/1" do
     test "it creates a category from the supplied params" do
-      ReadingList.create_category(%{ name: "test category"})
+      ReadingList.create_category(%{name: "test category"})
 
       last_category = Category |>last |> Repo.one
 

@@ -1,4 +1,11 @@
 defmodule Stevencwarren.ReadingList.ArticleParser do
+  @moduledoc """
+    `Stevencwarren.ReadingList.ArticleParser` is used to fetch the title and body tag of a webpage.
+
+    This is a costly and time consumig task and should ideally be run in the background off of the main process
+    of a request.
+  """
+
   import Floki
   alias Stevencwarren.HttpAdapter
 
