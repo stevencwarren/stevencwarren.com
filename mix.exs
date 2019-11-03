@@ -9,6 +9,8 @@ defmodule Stevencwarren.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
       aliases: aliases(),
       deps: deps()
     ]
@@ -46,6 +48,7 @@ defmodule Stevencwarren.MixProject do
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 0.12"},
+      {:excoveralls, "~> 0.10", only: :test},
       {:ex_machina, "~> 2.3", only: :test},
       {:slugger, "~> 0.3"},
       {:timex, "~> 3.5"},
