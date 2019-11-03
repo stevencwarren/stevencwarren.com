@@ -13,13 +13,13 @@ config :stevencwarren,
 # Configures the endpoint
 config :stevencwarren, StevencwarrenWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "otBypA3ttcAK0zaUHDK9DEMnZdml0u7cb2nYckeNQv/LoCpT11O7CJdjLdpCSugN",
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: StevencwarrenWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Stevencwarren.PubSub, adapter: Phoenix.PubSub.PG2]
 
 config :stevencwarren, Stevencwarren.UserManager.Guardian,
   issuer: "stevencwarren",
-  secret_key: "f8tnd5XsWSlBjMmMQTZD+b34E+zp0w2168tOe+Rhtmbrdo5oLso+RN+O1Ye/q3JF"
+  secret_key: System.get_env("GUARDIAN_SECRET_KEY")
 
 # Configures Elixir's Logger
 config :logger, :console,
