@@ -23,6 +23,7 @@ defmodule StevencwarrenWeb do
 
       import Plug.Conn
       import StevencwarrenWeb.Gettext
+      import Phoenix.LiveView.Controller
       alias StevencwarrenWeb.Router.Helpers, as: Routes
     end
   end
@@ -41,6 +42,11 @@ defmodule StevencwarrenWeb do
 
       import StevencwarrenWeb.ErrorHelpers
       import StevencwarrenWeb.Gettext
+
+      import Phoenix.LiveView,
+        only: [live_render: 2, live_render: 3, live_link: 1, live_link: 2,
+             live_component: 2, live_component: 3, live_component: 4]
+
       alias StevencwarrenWeb.Router.Helpers, as: Routes
     end
   end
@@ -50,6 +56,7 @@ defmodule StevencwarrenWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

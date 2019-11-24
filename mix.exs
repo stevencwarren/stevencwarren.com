@@ -52,7 +52,9 @@ defmodule Stevencwarren.MixProject do
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:bamboo, "~> 1.2"},
       {:httpoison, "~> 1.6"},
-      {:floki, "~> 0.21.0"}
+      {:floki, "~> 0.21.0"},
+      {:phoenix_live_view, "~> 0.4.1"},
+      {:tic_tac_toe, git: "https://github.com/stevencwarren/tic_tac_toe.git", branch: "master"}
     ]
   end
 

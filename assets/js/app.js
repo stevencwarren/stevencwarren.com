@@ -10,6 +10,8 @@ import css from "../css/app.scss"
 // Import dependencies
 //
 import "phoenix_html"
+import {Socket} from "phoenix"
+import LiveSocket from "phoenix_live_view"
 
 // Import local files
 //
@@ -19,3 +21,6 @@ import "phoenix_html"
 
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
+
+let liveSocket = new LiveSocket("/live", Socket)
+liveSocket.connect()
