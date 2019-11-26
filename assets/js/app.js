@@ -17,5 +17,10 @@ import "phoenix_html"
 
 // import socket from "./socket"
 
-var Turbolinks = require("turbolinks")
-Turbolinks.start()
+//var Turbolinks = require("turbolinks")
+//Turbolinks.start()
+
+import LiveSocket from "phoenix_live_view"
+
+let liveSocket = new LiveSocket("/live")
+liveSocket.connect()

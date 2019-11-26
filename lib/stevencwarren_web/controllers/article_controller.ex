@@ -3,6 +3,7 @@ defmodule StevencwarrenWeb.ArticleController do
 
   alias Stevencwarren.ReadingList
   alias Stevencwarren.UserManager.Guardian
+  alias Phoenix.LiveView
 
   def index(conn, _) do
     categories = ReadingList.list_categories()
@@ -12,6 +13,7 @@ defmodule StevencwarrenWeb.ArticleController do
     render(conn, "index.html",
       categories: categories,
       recent_articles: recent_articles,
+      changeset: ReadingList.article_changeset(),
       user: user
     )
   end

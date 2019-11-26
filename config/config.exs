@@ -15,7 +15,8 @@ config :stevencwarren, StevencwarrenWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: StevencwarrenWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Stevencwarren.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Stevencwarren.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "xXHQqUGehJwdK2y4VJoztlIUrVUVgh31tR8HVf89ysEYZXTIefaXxL+O3YDRRug8"]
 
 config :stevencwarren, Stevencwarren.UserManager.Guardian,
   issuer: "stevencwarren",
