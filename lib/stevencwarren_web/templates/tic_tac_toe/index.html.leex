@@ -2,15 +2,12 @@
   <div class="container">
     <h1 class="title">Tic Tac Toe</h1>
     <div class="columns is-multiline is-gapless board">
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
-      <div class="column is-one-third"></div>
+
+      <%= for index <- 0..8 do %>
+        <div phx-click="mark" phx-value-index="<%= index %>" class="column is-one-third">
+          <%= @game[:grid][index] %>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
