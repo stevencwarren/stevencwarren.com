@@ -31,6 +31,8 @@ defmodule StevencwarrenWeb.Router do
 
     get "/projects", PageController, :projects
 
+    get "/tic-tac-toe", TicTacToeController, :index
+
     get "/login", SessionController, :new
     post "/login", SessionController, :login
     post "/logout", SessionController, :logout
