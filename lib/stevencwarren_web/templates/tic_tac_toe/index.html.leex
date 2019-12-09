@@ -1,6 +1,9 @@
 <section class="section">
   <div class="container">
     <h1 class="title">Tic Tac Toe</h1>
+    <div>
+    It is player's <%= @game[:current_mark] %> turn
+    </div>
     <div class="columns is-multiline is-gapless board">
 
       <%= for index <- 0..8 do %>

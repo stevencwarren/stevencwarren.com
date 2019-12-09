@@ -20,7 +20,7 @@ defmodule StevencwarrenWeb.TicTacToeLive do
   def handle_event("mark", %{"index" => index}, socket) do
     game = Game.via_tuple("foo")
 
-    Game.add_mark(game, String.to_integer(index), "X")
+    Game.add_mark(game, String.to_integer(index), Game.get_state(game)[:current_mark])
 
     {:noreply, assign(socket, game: Game.get_state(game))}
   end

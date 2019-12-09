@@ -54,7 +54,8 @@ defmodule Stevencwarren.MixProject do
       {:httpoison, "~> 1.6"},
       {:floki, "~> 0.21.0"},
       {:phoenix_live_view, "~> 0.4.1"},
-      {:tic_tac_toe, git: "https://github.com/stevencwarren/tic_tac_toe.git", branch: "master"}
+      #{:tic_tac_toe, git: "https://github.com/stevencwarren/tic_tac_toe.git", branch: "master"}
+      {:tic_tac_toe, path: "/Users/swarren/Projects/personal/tic_tac_toe", branch: "master"}
     ]
   end
 
