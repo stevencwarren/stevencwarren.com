@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :stevencwarren, Stevencwarren.Repo,
-  username: "swarren",
+  username: "stevenwarren",
   password: "",
   database: "stevencwarren_dev",
   hostname: "localhost",
