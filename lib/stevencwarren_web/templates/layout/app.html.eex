@@ -16,8 +16,9 @@
           <div class="navbar-start">
             <div class="navbar-brand">
             </div>
-            <a href="http://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless" target="_blank">Github</a>
-            <a href="http://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless" target="_blank">LinkedIn</a>
+            <a href="https://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless" target="_blank">Github</a>
+            <a href="https://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless" target="_blank">LinkedIn</a>
+            <a href="./files/StevenWarrenResume.pdf" class="navbar-item navbar-link is-arrowless" target="_blank">Resume</a>
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
