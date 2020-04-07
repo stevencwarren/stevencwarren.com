@@ -4,6 +4,11 @@ on: push
 
 jobs:
   test:
+    env:
+      MIX_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/stevencwarren_test
+      SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+      GUARDIAN_SECRET_KEY: ${{ secrets.GUARDIAN_SECRET_KEY }}
     runs-on: ubuntu-18.04
 
     services:
@@ -23,7 +28,7 @@ jobs:
         with:
           otp-version: 22.x
           elixir-version: 1.9.x
-      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix deps.get
-      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix ecto.create
-      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix ecto.migrate
-      - run: MIX_ENV=test DATABASE_URL=postgres://postgres:postgres@localhost/stevencwarren_test:${{ job.services.postgres.ports[5432] }}  mix test
+      - run:  mix deps.get
+      - run:  mix ecto.create
+      - run:  mix ecto.migrate
+      - run:  mix test
