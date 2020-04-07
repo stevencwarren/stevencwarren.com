@@ -39,3 +39,4 @@ config/prod.secret.exs
 rel
 .elixir_ls
 .vscode
+.envrc
