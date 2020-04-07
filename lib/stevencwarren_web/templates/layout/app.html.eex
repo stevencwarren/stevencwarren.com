@@ -9,9 +9,9 @@
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body class="site-container has-text-white">
+  <body class="site-container has-background-black has-text-white">
     <header>
-      <nav class="navbar">
+      <nav class="navbar is-black">
         <div class="container">
           <div class="navbar-start">
             <div class="navbar-brand">

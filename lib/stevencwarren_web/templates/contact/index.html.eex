@@ -4,12 +4,12 @@
 
     <%= form_for :contact, Routes.contact_path(@conn, :create), fn f -> %>
       <div class="field">
-        <label class="label">Email</label>
+        <label class="label has-text-white">Email</label>
         <%= text_input f, :email, class: "input" %>
       </div>
 
       <div class="field">
-        <label class="label">Message</label>
+        <label class="label has-text-white">Message</label>
         <div class="control">
           <%= textarea f, :message, class: "input" %>
         </div>
