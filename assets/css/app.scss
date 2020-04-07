@@ -19,17 +19,22 @@ $yellow: $nord13;
 $green: $nord14;
 $turquoise: $nord7;
 $cyan: $nord8;
-$blue: $nord9;
+$blue: $nord4;
 $purple: $nord15;
 $red: $nord11;
+$link-hover: $nord6;
 
-$body-background-color: #232323;
+$body-background-color: $nord0;
 
 $family-primary:'Open Sans', sans-serif;
 $family-secondary: 'Roboto', sans-serif;
 
+a:hover {
+  text-decoration: underline;
+}
+
 body {
-  color: #fff;
+  color: $nord6 !important;
 }
 
 .navbar {
