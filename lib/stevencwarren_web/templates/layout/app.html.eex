@@ -9,7 +9,7 @@
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body class="site-container has-text-grey-dark">
+  <body class="site-container has-text-white">
     <header>
       <nav class="navbar">
         <div class="container">
