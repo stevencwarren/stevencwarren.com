@@ -24,6 +24,8 @@ $purple: $nord15;
 $red: $nord11;
 $link-hover: $nord6;
 
+$navbar-item-hover-background-color: $black;
+
 $body-background-color: $nord0;
 
 $family-primary:'Open Sans', sans-serif;
@@ -39,6 +41,11 @@ body {
 
 .navbar {
   background-color: $body-background-color !important;
+  border-top: 1px solid $white;
+}
+
+.navbar a:hover {
+  color: $black !important;
 }
 
 

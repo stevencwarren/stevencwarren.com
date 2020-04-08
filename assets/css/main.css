@@ -3,11 +3,8 @@
 }
 
 .site-container {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.site-content {
-  flex: 1;
+  /*display: flex;*/
+  /*min-height: 100vh;*/
+  /*flex-direction: column;*/
+  padding-bottom: 3rem;
 }

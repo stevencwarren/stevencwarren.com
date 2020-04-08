@@ -11,14 +11,12 @@
   </head>
   <body class="site-container has-background-black has-text-white">
     <header>
-      <nav class="navbar is-black">
-        <div class="container">
+      <nav class="navbar is-black is-fixed-bottom">
+        <div class="container has-text-centered-touch">
           <div class="navbar-start">
-            <div class="navbar-brand">
-            </div>
-            <a href="https://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless" target="_blank">Github</a>
-            <a href="https://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless" target="_blank">LinkedIn</a>
-            <a href="./files/StevenWarrenResume.pdf" class="navbar-item navbar-link is-arrowless" target="_blank">Resume</a>
+            <a href="https://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">Github</a>
+            <a href="https://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">LinkedIn</a>
+            <a href="./files/StevenWarrenResume.pdf" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">Resume</a>
           </div>
           <div class="navbar-end">
             <div class="navbar-menu">
