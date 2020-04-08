@@ -6,7 +6,7 @@ jobs:
   test:
     env:
       MIX_ENV: test
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/stevencwarren_test
+      TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/stevencwarren_test
       SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
       GUARDIAN_SECRET_KEY: ${{ secrets.GUARDIAN_SECRET_KEY }}
     runs-on: ubuntu-18.04
