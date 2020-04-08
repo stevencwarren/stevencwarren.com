@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <h1 class="title column is-11">Posts</h1>
+
+      <div class="column has-text-right">
+        <%= link("New", to: "#", class: "button is-primary") %>
+      </div>
+    </div>
+    <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+      <thead>
+        <th title="Title">Title</th>
+        <th>Published On</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <%= for post <- @posts do %>
+          <tr>
+            <td title="Title"><%= post.title %> </td>
+            <td><%= post.published_at %></td>
+            <td>
+              <%= link("edit", to: "#", class: "has-text-dark") %>&nbsp;
+              <%= link("delete", to: "#", class: "has-text-dark", method: :delete, data: [confirm: "Are you sure you want to delete #{post.name}"]) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

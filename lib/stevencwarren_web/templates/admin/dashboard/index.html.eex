@@ -1,6 +1,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title">Admin dashboard</h2>
-    <%= link "Categories", to: Routes.admin_category_path(@conn, :index) %>
+    <p><%= link "Categories", to: Routes.admin_category_path(@conn, :index) %></p>
+    <p><%= link "Posts", to: Routes.admin_post_path(@conn, :index) %></p>
   </div>
 </section>

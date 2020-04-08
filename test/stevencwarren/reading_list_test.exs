@@ -23,9 +23,9 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "create_article/1" do
     test "it creates an article with the supplied params" do
-      ReadingList.create_article(%{ url: "https://stevencwarren.com"})
+      ReadingList.create_article(%{url: "https://stevencwarren.com"})
 
-      last_article = Article |>last |> Repo.one
+      last_article = Article |> last |> Repo.one()
 
       assert last_article.url == "https://stevencwarren.com"
       assert Repo.aggregate(Article, :count, :id) == 1
@@ -34,9 +34,9 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "create_category/1" do
     test "it creates a category from the supplied params" do
-      ReadingList.create_category(%{ name: "test category"})
+      ReadingList.create_category(%{name: "test category"})
 
-      last_category = Category |>last |> Repo.one
+      last_category = Category |> last |> Repo.one()
 
       assert last_category.name == "test category"
       assert Repo.aggregate(Category, :count, :id) == 1
@@ -45,8 +45,9 @@ defmodule Stevencwarren.ReadingListTest do
 
   describe "get_category/1" do
     test "it returns a category when it has a correct slug" do
-      category = insert(:category, %{name: "a category", slug: "a-category"})
-                 |> Repo.preload(:articles)
+      category =
+        insert(:category, %{name: "a category", slug: "a-category"})
+        |> Repo.preload(:articles)
 
       assert ReadingList.get_category!("a-category") == category
     end
@@ -54,7 +55,7 @@ defmodule Stevencwarren.ReadingListTest do
     test "it raises a 404 when the category is not found" do
       insert(:category, %{name: "a category", slug: "a-category"})
 
-      assert_raise Ecto.NoResultsError,  fn ->
+      assert_raise Ecto.NoResultsError, fn ->
         ReadingList.get_category!("foo")
       end
     end
