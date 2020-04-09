@@ -8,13 +8,15 @@ defmodule Stevencwarren.Blog.Post do
     field :tags, {:array, :string}
     field :title, :string
 
+    belongs_to :category, Stevencwarren.ReadingList.Category
+
     timestamps()
   end
 
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :body, :published_on, :tags])
+    |> cast(attrs, [:category_id, :title, :body, :published_on, :tags])
     |> validate_required([:title, :body, :published_on, :tags])
   end
 end

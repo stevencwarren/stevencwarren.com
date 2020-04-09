@@ -8,7 +8,11 @@ defmodule Stevencwarren.Repo.Migrations.CreatePosts do
       add :published_on, :date
       add :tags, {:array, :string}
 
+      add :category_id, references(:categories)
+
       timestamps()
     end
+
+    create index(:posts, [:published_on, :category_id])
   end
 end

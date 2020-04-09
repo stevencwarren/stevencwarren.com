@@ -25,3 +25,6 @@ ReadingList.create_category(%{name: "Misc"})
 # Create User
 User.changeset(%User{}, %{email: "steven@stevencwarren.com", password: "Passw0rd!"})
 |> Repo.insert!()
+
+# Create Posts
+
