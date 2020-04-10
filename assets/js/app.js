@@ -19,3 +19,15 @@ import "phoenix_html"
 
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
+
+document.addEventListener('turbolinks:load', () => {
+  const navBurger = document.getElementById("js-NavBarBurger");
+  const navMenu = document.getElementById("js-NavBarMenu");
+
+  if (navBurger) {
+    navBurger.addEventListener("click", () => {
+      navBurger.classList.toggle("is-active");
+      navMenu.classList.toggle("is-active");
+    })
+  }
+});
