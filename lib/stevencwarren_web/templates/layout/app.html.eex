@@ -13,15 +13,20 @@
     <header>
       <nav class="navbar is-black is-fixed-bottom">
         <div class="container has-text-centered-touch">
-          <div class="navbar-start">
+          <div class="navbar-brand">
             <a href="https://www.stevencwarren.com" class="navbar-item navbar-link is-arrowless has-text-white">sw</a>
-            <a href="https://www.stevencwarren.com/projects/" class="navbar-item navbar-link is-arrowless has-text-white">Projects</a>
-            <a href="https://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">Github</a>
-            <a href="https://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">LinkedIn</a>
-            <a href="./files/StevenWarrenResume.pdf" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">Resume</a>
+            <a id="js-NavBarBurger" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
           <div class="navbar-end">
-            <div class="navbar-menu">
+            <div id="js-NavBarMenu" class="has-background-black has-text-white navbar-menu">
+              <a href="https://www.stevencwarren.com/projects/" class="navbar-item navbar-link is-arrowless has-text-white">Projects</a>
+              <a href="https://github.com/stevencwarren" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">Github</a>
+              <a href="https://www.linkedin.com/in/stevenwarren/" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">LinkedIn</a>
+              <a href="./files/StevenWarrenResume.pdf" class="navbar-item navbar-link is-arrowless has-text-white" target="_blank">Resume</a>
               <%= link("Contact Me", to: "/contact", class: "navbar-item navbar-link is-arrowless") %>
               <%= if logged_in?(@conn) do %>
                 <%= link("Reading List", to: "/reading-list", class: "navbar-item navbar-link is-arrowless") %>
