@@ -58,5 +58,6 @@ defmodule StevencwarrenWeb.Router do
     get "/dashboard", DashboardController, :index
 
     resources "/categories", CategoryController
+    resources "/posts", PostController
   end
 end
