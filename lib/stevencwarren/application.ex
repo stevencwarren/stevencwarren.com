@@ -11,6 +11,7 @@ defmodule Stevencwarren.Application do
       # Start the Ecto repository
       Stevencwarren.Repo,
       # Start the endpoint when the application starts
+      StevencwarrenWeb.Telemetry,
       StevencwarrenWeb.Endpoint
       # Starts a worker by calling: Stevencwarren.Worker.start_link(arg)
       # {Stevencwarren.Worker, arg},

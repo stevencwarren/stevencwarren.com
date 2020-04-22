@@ -53,7 +53,9 @@ defmodule Stevencwarren.MixProject do
       {:bamboo, "~> 1.2"},
       {:httpoison, "~> 1.6"},
       {:floki, "~> 0.21.0"},
-      {:phoenix_live_dashboard, "~> 0.1"}
+      {:phoenix_live_dashboard, "~> 0.1"},
+      {:telemetry_poller, "~> 0.4"},
+      {:telemetry_metrics, "~> 0.4"},
     ]
   end
 

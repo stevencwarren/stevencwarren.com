@@ -57,7 +57,7 @@ defmodule StevencwarrenWeb.Router do
     pipe_through [:browser, :auth, :ensure_auth]
 
     get "/dashboard", DashboardController, :index
-    live_dashboard "/stats"
+    live_dashboard "/stats", metrics: StevencwarrenWeb.Telemetry
 
     resources "/categories", CategoryController
   end
