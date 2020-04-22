@@ -52,7 +52,8 @@ defmodule Stevencwarren.MixProject do
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:bamboo, "~> 1.2"},
       {:httpoison, "~> 1.6"},
-      {:floki, "~> 0.21.0"}
+      {:floki, "~> 0.21.0"},
+      {:phoenix_live_dashboard, "~> 0.1"}
     ]
   end
 
