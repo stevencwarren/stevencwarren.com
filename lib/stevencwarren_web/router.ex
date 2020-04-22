@@ -1,5 +1,6 @@
 defmodule StevencwarrenWeb.Router do
   use StevencwarrenWeb, :router
+  import Phoenix.LiveDashboard.Router
 
   pipeline :auth do
     plug Stevencwarren.UserManager.Pipeline
@@ -56,6 +57,7 @@ defmodule StevencwarrenWeb.Router do
     pipe_through [:browser, :auth, :ensure_auth]
 
     get "/dashboard", DashboardController, :index
+    live_dashboard "/stats"
 
     resources "/categories", CategoryController
   end

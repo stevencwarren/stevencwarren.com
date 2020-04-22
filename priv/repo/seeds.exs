@@ -15,6 +15,9 @@ alias Stevencwarren.ReadingList
 alias Stevencwarren.UserManager.User
 alias Stevencwarren.Repo
 
+Repo.delete_all(Stevencwarren.ReadingList.Category)
+Repo.delete_all(User)
+
 # Creating categories
 ReadingList.create_category(%{ name: "Web Development"})
 ReadingList.create_category(%{ name: "Economics"})
