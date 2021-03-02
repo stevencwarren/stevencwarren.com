@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  app:
+    build: .
+    command: "mix phx.server"
+    environment:
+      PG_PASSWORD: password
+      PG_USER: postgres
+      PG_HOST: db
+      PG_DATABASE: stevencwarren
+      MIX_ENV: dev
+      SECRET_KEY_BASE: $SECRET_KEY_BASE
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db

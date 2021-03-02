@@ -10,6 +10,8 @@ defmodule Stevencwarren.Application do
     children = [
       # Start the Ecto repository
       Stevencwarren.Repo,
+      # Start the PubSub system
+      {Phoenix.PubSub, name: Stevencwarren.PubSub},
       # Start the endpoint when the application starts
       StevencwarrenWeb.Telemetry,
       StevencwarrenWeb.Endpoint

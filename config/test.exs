@@ -1,15 +1,12 @@
 use Mix.Config
 
 # Configure your database
-database_url =
-  System.get_env("DATABASE_URL") ||
-    raise """
-    environment variable DATABASE_URL is missing.
-    For example: ecto://USER:PASS@HOST/DATABASE
-    """
-
 config :stevencwarren, Stevencwarren.Repo,
-  url: database_url,
+  username: System.get_env["PG_USER"],
+  password: System.get_env["PG_PASSWORD"],
+  hostname: System.get_env["PG_HOST"],
+  show_sensitive_data_on_connection_error: true,
+  database: "#{System.get_env["PG_DATABASE"]}_test",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

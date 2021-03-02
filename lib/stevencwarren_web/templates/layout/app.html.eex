@@ -46,7 +46,7 @@
       <div class="alert has-background-danger has-text-white" role="alert">
         <p class="container"><%= get_flash(@conn, :error) %></p>
       </div>
-      <%= render @view_module, @view_template, assigns %>
+      <%= @inner_content %>
     </main>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148179118-1"></script>

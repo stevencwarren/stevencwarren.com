@@ -2,12 +2,12 @@ use Mix.Config
 
 # Configure your database
 config :stevencwarren, Stevencwarren.Repo,
-  username: "stevenwarren",
-  password: "",
-  database: "stevencwarren_dev",
-  hostname: "localhost",
+  username: System.get_env["PG_USER"],
+  password: System.get_env["PG_PASSWORD"],
+  hostname: System.get_env["PG_HOST"],
+  pool_size: 10,
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  database: "#{System.get_env["PG_DATABASE"]}_dev"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
